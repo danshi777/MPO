@@ -30,10 +30,20 @@ if TYPE_CHECKING:
 
 logger = get_logger(__name__)
 
+LANGUAGE2ID = {
+            "en": 0,
+            "zh-CN": 1,
+            "ja": 2,
+            "ko": 3,
+            "ar": 4,
+            "bn": 5,
+            "sw": 6,
+        }
 
 def _encode_pairwise_example(
     prompt: Sequence[Dict[str, str]],
     response: Sequence[Dict[str, str]],
+    language: Sequence[str],
     system: Optional[str],
     tools: Optional[str],
     images: Sequence["ImageInput"],
@@ -63,7 +73,10 @@ def _encode_pairwise_example(
     chosen_labels = [IGNORE_INDEX] * source_len + chosen_ids
     rejected_input_ids = prompt_ids + rejected_ids
     rejected_labels = [IGNORE_INDEX] * source_len + rejected_ids
-    return chosen_input_ids, chosen_labels, rejected_input_ids, rejected_labels
+    
+    # print(language) # "en"
+    language_id = LANGUAGE2ID[language] # 0
+    return chosen_input_ids, chosen_labels, rejected_input_ids, rejected_labels, language_id
 
 
 def preprocess_pairwise_dataset(
@@ -81,9 +94,10 @@ def preprocess_pairwise_dataset(
                 logger.warning("Dropped invalid example: {}".format(examples[f"_{lang}_prompt"][i] + examples[f"_{lang}_response"][i]))
                 continue
 
-            chosen_input_ids, chosen_labels, rejected_input_ids, rejected_labels = _encode_pairwise_example(
+            chosen_input_ids, chosen_labels, rejected_input_ids, rejected_labels, language_id = _encode_pairwise_example(
                 prompt=examples[f"_{lang}_prompt"][i],
                 response=examples[f"_{lang}_response"][i],
+                language=examples[f"_{lang}_language"][i],
                 system=examples["_system"][i],
                 tools=examples["_tools"][i],
                 images=examples["_images"][i] or [],
@@ -99,6 +113,7 @@ def preprocess_pairwise_dataset(
             model_inputs[f"{lang}_rejected_input_ids"].append(rejected_input_ids)
             model_inputs[f"{lang}_rejected_attention_mask"].append([1] * len(rejected_input_ids))
             model_inputs[f"{lang}_rejected_labels"].append(rejected_labels)
+            model_inputs[f"{lang}_language_id"].append(language_id)
             if lang == 'source':
                 model_inputs["images"].append(examples["_images"][i])
                 model_inputs["videos"].append(examples["_videos"][i])

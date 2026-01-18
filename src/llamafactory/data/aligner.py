@@ -191,11 +191,14 @@ def convert_ours(
         broken_data = True
 
     # pairwise example
+    # TODO
     source_chosen = example[dataset_attr.source_chosen]
     source_rejected = example[dataset_attr.source_rejected]
+    source_language = example[dataset_attr.source_language]
 
     target_chosen = example[dataset_attr.target_chosen]
     target_rejected = example[dataset_attr.target_rejected]
+    target_language = example[dataset_attr.target_language]
     
     if (
         source_chosen[dataset_attr.role_tag] not in accept_tags[-1]
@@ -211,6 +214,7 @@ def convert_ours(
         logger.warning("Invalid role tag in {}.".format([target_chosen, target_rejected]))
         broken_data = True
     
+    # TODO
     source_prompt = source_aligned_messages
     source_response = [
         {"role": tag_mapping[source_chosen[dataset_attr.role_tag]], "content": source_chosen[dataset_attr.content_tag]},
@@ -232,8 +236,10 @@ def convert_ours(
     output = {
         "_source_prompt": source_prompt,
         "_source_response": source_response,
+        "_source_language": source_language,
         "_target_prompt": target_prompt,
         "_target_response": target_response,
+        "_target_language": target_language,
         "_system": system,
         "_tools": example[dataset_attr.tools] if dataset_attr.tools else "",
         "_images": convert_images(example[dataset_attr.images]) if dataset_attr.images else None,

@@ -443,6 +443,8 @@ def get_batch_logps(
 ) -> Tuple["torch.Tensor", "torch.Tensor"]:
     r"""
     Computes the log probabilities of the given labels under the given logits.
+    logits: shape [2B, L, V]
+    labels: shape [2B, L]
 
     Returns:
         logps: A tensor of shape (batch_size,) containing the sum of log probabilities.
@@ -455,5 +457,10 @@ def get_batch_logps(
     logits = logits[:, :-1, :]
     loss_mask = labels != label_pad_token_id
     labels[labels == label_pad_token_id] = 0  # dummy token
-    per_token_logps = torch.gather(logits.log_softmax(-1), dim=2, index=labels.unsqueeze(2)).squeeze(2)
-    return (per_token_logps * loss_mask).sum(-1), loss_mask.sum(-1)
+    
+    per_token_logps = torch.gather(logits.log_softmax(-1), dim=2, index=labels.unsqueeze(2)).squeeze(2) # 选出“目标 token”的 log-prob, 结果的shape [2B, L-1]
+
+    # loss_mask: bool → 自动转为 0/1, per_token_logps * loss_mask: 只保留 response token 的 logp, .sum(-1)：对 token 维求和
+    return (per_token_logps * loss_mask).sum(-1), loss_mask.sum(-1) 
+    # 第一个是：每个样本所有 response token 的 log-probability 之和, shape [2B]
+    # 第一个是：response 中有效 token 数, shape [2B]

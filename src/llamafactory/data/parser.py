@@ -67,10 +67,12 @@ class DatasetAttr:
     source_messages: Optional[str] = "source_conversations"
     source_chosen: Optional[str] = "source_chosen"
     source_rejected: Optional[str] = "source_rejected"
+    source_language: Optional[str] = "source_language"
 
     target_messages: Optional[str] = "target_conversations"
     target_chosen: Optional[str] = "target_chosen"
     target_rejected: Optional[str] = "target_rejected"
+    target_language: Optional[str] = "target_language"
 
     def __repr__(self) -> str:
         return self.dataset_name

@@ -42,7 +42,7 @@ if TYPE_CHECKING:
     from ...hparams import FinetuningArguments
 
 
-class CustomDPOTrainer(DPOTrainer):
+class CustomHPOTrainer(DPOTrainer):
     def __init__(
         self,
         model: Union["PreTrainedModel", torch.nn.Module],
@@ -83,16 +83,15 @@ class CustomDPOTrainer(DPOTrainer):
         self.lang_reward = {}
 
         # hpo hyperparams
-        if self.loss_type == "hpo":
-            self.margin_lambda = finetuning_args.margin_lambda
-            mu_en = torch.load(finetuning_args.mu_en_path, map_location="cpu") # [H]
-            mu_zh = torch.load(finetuning_args.mu_zh_path, map_location="cpu")
-            mu_ja = torch.load(finetuning_args.mu_ja_path, map_location="cpu")
-            mu_ko = torch.load(finetuning_args.mu_ko_path, map_location="cpu")
-            mu_ar = torch.load(finetuning_args.mu_ar_path, map_location="cpu")
-            mu_bn = torch.load(finetuning_args.mu_bn_path, map_location="cpu")
-            mu_sw = torch.load(finetuning_args.mu_sw_path, map_location="cpu")
-            self.mu_table = torch.stack([mu_en, mu_zh, mu_ja, mu_ko, mu_ar, mu_bn, mu_sw], dim=0)  # [K, H]
+        self.margin_lambda = finetuning_args.margin_lambda
+        mu_en = torch.load(finetuning_args.mu_en_path, map_location="cpu") # [H]
+        mu_zh = torch.load(finetuning_args.mu_zh_path, map_location="cpu")
+        mu_ja = torch.load(finetuning_args.mu_ja_path, map_location="cpu")
+        mu_ko = torch.load(finetuning_args.mu_ko_path, map_location="cpu")
+        mu_ar = torch.load(finetuning_args.mu_ar_path, map_location="cpu")
+        mu_bn = torch.load(finetuning_args.mu_bn_path, map_location="cpu")
+        mu_sw = torch.load(finetuning_args.mu_sw_path, map_location="cpu")
+        self.mu_table = torch.stack([mu_en, mu_zh, mu_ja, mu_ko, mu_ar, mu_bn, mu_sw], dim=0)  # [K, H]
 
 
         Trainer.__init__(self, model=model, **kwargs)
@@ -291,18 +290,7 @@ class CustomDPOTrainer(DPOTrainer):
         """
         if b.dim() == 1:
             b = b.unsqueeze(0)  # [1, H]
-        return torch.norm(a - b, p=2, dim=-1)  # [B] 
-    
-    def rms_dist(self, a: torch.Tensor, b: torch.Tensor) -> torch.Tensor:
-        """
-        a: [B, H]
-        b: [H] or [B, H]
-        return: [B]
-        """
-        if b.dim() == 1:
-            b = b.unsqueeze(0)  # [1, H]
-        return torch.sqrt(((a - b) ** 2).mean(dim=-1) + 1e-8)  # [B]
-
+        return torch.norm(a - b, p=2, dim=-1)  # [B]
 
     def simpo_loss(self, chosen_logps: "torch.Tensor", rejected_logps: "torch.Tensor") -> "torch.Tensor":
         r"""Compute SimPO loss for batched log probabilities of the policy model."""
@@ -340,13 +328,8 @@ class CustomDPOTrainer(DPOTrainer):
         mu_harmless_sources = mu_table[source_lang_ids_b]  # [B, H]  <<< 核心：按样本选 μ
         mu_harmless_targets = mu_table[target_lang_ids_b] 
 
-        # source_margin = self.l2_dist(source_chosen_reprs, mu_harmless_sources) # [B], no grad
-        # target_margin = self.l2_dist(target_chosen_reprs, mu_harmless_targets) # [B], grad
-        source_margin = self.rms_dist(source_chosen_reprs, mu_harmless_sources) # [B], no grad
-        target_margin = self.rms_dist(target_chosen_reprs, mu_harmless_targets) # [B], grad
-        if not dist.is_initialized() or dist.get_rank() == 0:
-            print("en_margin:", source_margin)
-            print("target_margin:", target_margin)
+        source_margin = self.l2_dist(source_chosen_reprs, mu_harmless_sources) # [B], no grad
+        target_margin = self.l2_dist(target_chosen_reprs, mu_harmless_targets) # [B], grad
 
         margin_violation = torch.relu(source_margin - target_margin)      # [B], relu相当于max(0,x)，只当source_margin > target_margin 时才拉近
         # margin_violation = torch.relu(self.beta * source_margin - target_margin)
@@ -407,10 +390,7 @@ class CustomDPOTrainer(DPOTrainer):
         chosen_rewards = policy_chosen_logps.to(self.accelerator.device).detach() # rewards就等于logps. 注意这里 .detach()：不让这些指标张量参与梯度（只用于 logging）。
         rejected_rewards = policy_rejected_logps.to(self.accelerator.device).detach()
 
-        if self.loss_type == "simpo":
-            return losses, chosen_rewards, rejected_rewards
-        else: # hpo
-            return losses, simpo_loss, spatial_margin_loss, en_retain_loss, chosen_rewards, rejected_rewards
+        return losses, chosen_rewards, rejected_rewards
     
     @override
     def get_batch_loss_metrics(
@@ -444,29 +424,16 @@ class CustomDPOTrainer(DPOTrainer):
 
 
         # print("reference_outputs[source]:", reference_outputs['source'])
-        if self.loss_type == "simpo":
-            losses, chosen_rewards, rejected_rewards = self.compute_preference_loss(
-                policy_outputs,
-                reference_outputs,
-                source_lang_ids,
-                target_lang_ids,
-            )
-        else: # hpo
-            losses, simpo_loss, spatial_margin_loss, en_retain_loss, chosen_rewards, rejected_rewards= self.compute_preference_loss(
-                policy_outputs,
-                reference_outputs,
-                source_lang_ids,
-                target_lang_ids,
-            )
-        
+        losses, chosen_rewards, rejected_rewards = self.compute_preference_loss(
+            policy_outputs,
+            reference_outputs,
+            source_lang_ids,
+            target_lang_ids,
+        )
+
         reward_accuracies = (chosen_rewards > rejected_rewards).float()
 
         prefix = "eval_" if train_eval == "eval" else ""
-        if self.loss_type == "hpo":
-            metrics["{}simpo_loss".format(prefix)] = simpo_loss.detach().float().mean().cpu().item()
-            metrics["{}spatial_margin_loss".format(prefix)] = spatial_margin_loss.detach().float().mean().cpu().item()
-            metrics["{}en_retain_loss".format(prefix)] = en_retain_loss.detach().float().mean().cpu().item()
-
         metrics["{}rewards/chosen".format(prefix)] = chosen_rewards.mean().cpu()
         metrics["{}rewards/rejected".format(prefix)] = rejected_rewards.mean().cpu()
         metrics["{}rewards/accuracies".format(prefix)] = reward_accuracies.mean().cpu()

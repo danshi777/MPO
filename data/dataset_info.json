@@ -1,4 +1,49 @@
 {
+  "gemma_hpo_data": {
+    "file_name": "gemma_hpo_data.json",
+    "ranking": true,
+    "formatting": "ours",
+    "columns": {
+      "source_language": "source_language",
+      "source_messages": "source_conversations",
+      "source_chosen": "source_chosen",
+      "source_rejected": "source_rejected",
+      "target_language": "target_language",
+      "target_messages": "target_conversations",
+      "target_chosen": "target_chosen",
+      "target_rejected": "target_rejected"
+    }
+  },
+    "llama_hpo_data": {
+    "file_name": "llama_hpo_data.json",
+    "ranking": true,
+    "formatting": "ours",
+    "columns": {
+      "source_language": "source_language",
+      "source_messages": "source_conversations",
+      "source_chosen": "source_chosen",
+      "source_rejected": "source_rejected",
+      "target_language": "target_language",
+      "target_messages": "target_conversations",
+      "target_chosen": "target_chosen",
+      "target_rejected": "target_rejected"
+    }
+  },
+    "qwen_hpo_data": {
+    "file_name": "qwen_hpo_data.json",
+    "ranking": true,
+    "formatting": "ours",
+    "columns": {
+      "source_language": "source_language",
+      "source_messages": "source_conversations",
+      "source_chosen": "source_chosen",
+      "source_rejected": "source_rejected",
+      "target_language": "target_language",
+      "target_messages": "target_conversations",
+      "target_chosen": "target_chosen",
+      "target_rejected": "target_rejected"
+    }
+  },
     "gemma_mpo_data": {
     "file_name": "gemma_mpo_data.json",
     "ranking": true,

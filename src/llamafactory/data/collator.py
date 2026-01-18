@@ -134,6 +134,7 @@ class PairwiseDataCollatorWithPadding(MultiModalDataCollatorForSeq2Seq):
         the last n examples represent rejected examples.
         """
         source_concatenated_features, target_concatenated_features = [], []
+        source_lang_ids, target_lang_ids = [], []
         for key in ("chosen", "rejected"):
             for feature in features:
                 target_feature = {
@@ -143,7 +144,8 @@ class PairwiseDataCollatorWithPadding(MultiModalDataCollatorForSeq2Seq):
                     "images": feature["images"],
                     "videos": feature["videos"],
                 }
-                source_concatenated_features.append(target_feature)
+                source_concatenated_features.append(target_feature) # source_concatenated_features 的长度是 2B, 前 B 个样本是 chosen，后 B 个样本是 rejected
+                source_lang_ids.append(feature["source_language_id"])
         
         for key in ("chosen", "rejected"):
             for feature in features:
@@ -154,9 +156,33 @@ class PairwiseDataCollatorWithPadding(MultiModalDataCollatorForSeq2Seq):
                     "images": feature["images"],
                     "videos": feature["videos"],
                 }
-                target_concatenated_features.append(target_feature)
+                target_concatenated_features.append(target_feature) # target_concatenated_features 的长度也是 2B, 前 B 个样本是 chosen，后 B 个样本是 rejected
+                target_lang_ids.append(feature["target_language_id"])
 
-        return super().__call__(source_concatenated_features), super().__call__(target_concatenated_features)
+        source_batch = super().__call__(source_concatenated_features)
+        target_batch = super().__call__(target_concatenated_features)
+
+        source_batch["source_language_id"] = torch.tensor(source_lang_ids, dtype=torch.long)
+        target_batch["target_language_id"] = torch.tensor(target_lang_ids, dtype=torch.long)
+        return source_batch, target_batch
+        # 父类 MultiModalDataCollatorForSeq2Seq.__call__ 的作用是：
+        # 对 input_ids / labels / attention_mask：
+        # pad 到 batch 内最大长度
+        # stack 成 tensor
+        # 处理 images / videos 的 batch 组织
+        # 返回一个标准的 batch dict，例如：
+        # {
+        # "input_ids": Tensor[2B, L_max],
+        # "attention_mask": Tensor[2B, L_max],
+        # "labels": Tensor[2B, L_max],
+        # "images": ...,
+        # "videos": ...,
+        # }
+        # 因此整个 collator 的最终返回是一个 二元组：
+        # (
+        # source_batch: Dict[str, Tensor],   # 用于 source / reference
+        # target_batch: Dict[str, Tensor],   # 用于 target / policy
+        # )
 
 
 @dataclass
