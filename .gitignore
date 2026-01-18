@@ -6,3 +6,4 @@ data/multijail/*
 eval_results/*
 */__pycache__/*
 train_logs/*
+*.png

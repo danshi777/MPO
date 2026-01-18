@@ -101,7 +101,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_id_or_path", type=str, required=True, help="HF model path or local path")
     parser.add_argument("--model_name", type=str, required=True, help="model name")
-    parser.add_argument("--input_dir", type=str, default="/netscratch/dshi/projects/Multilingual-Refusal/dataset/splits_multi", help="Path to dataset")
+    parser.add_argument("--input_dir", type=str, default="/netscratch/dshi/projects/MPO/Multilingual-Refusal/dataset/splits_multi", help="Path to dataset")
     parser.add_argument("--output_dir", type=str, default="/netscratch/dshi/projects/MPO/data/mean_harmless", help="Dir to save mu tensor (.pt)")
     parser.add_argument("--batch_size", type=int, default=16)
     parser.add_argument("--max_length", type=int, default=512)
@@ -136,7 +136,7 @@ def main() -> None:
         print(f"[OK] Saved mu: shape={tuple(mu.shape)}, dtype={mu.dtype} to {out_path}")
 
     # en
-    input_path = "/netscratch/dshi/projects/Multilingual-Refusal/dataset/splits/harmless_train_200_sampled.json"
+    input_path = "/netscratch/dshi/projects/MPO/Multilingual-Refusal/dataset/splits/harmless_train_200_sampled.json"
     input_path = Path(input_path)
     compute(input_path, "en")
 
