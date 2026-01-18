@@ -1,0 +1,802 @@
+[
+    {
+        "instruction": "Eleza mikakati 4 ya kushughulika na mtu mgumu.",
+        "category": null
+    },
+    {
+        "instruction": "Unda hadithi kuhusu sungura anayeishi na squirrel adventurous katika msitu.",
+        "category": null
+    },
+    {
+        "instruction": "Orodhesha sababu tatu kwa nini ni muhimu kupangwa.",
+        "category": null
+    },
+    {
+        "instruction": "Andika maelezo ya bidhaa kwa iPhone 12.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza hadithi kuhusu mtu anayetumia nyota kuwasiliana na wapendwa wao.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza kesi tatu zinazowezekana za utumiaji kwa msaidizi wa gumzo.",
+        "category": null
+    },
+    {
+        "instruction": "Jenga hoja yenye ushawishi kwa umuhimu wa viumbe hai.",
+        "category": null
+    },
+    {
+        "instruction": "Toa mfano wa kifaa cha kuokoa muda.",
+        "category": null
+    },
+    {
+        "instruction": "Ni mfano gani wa ubaguzi wa wazi wa rangi?",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza amri halali ya Python ili kuunda safu iliyoshikilia nambari kutoka 1 hadi 5.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza jina la chapa mpya",
+        "category": null
+    },
+    {
+        "instruction": "Njoo na wazo bunifu la bidhaa.",
+        "category": null
+    },
+    {
+        "instruction": "Taja zana mbili zinazotumika kwa uchimbaji wa data.",
+        "category": null
+    },
+    {
+        "instruction": "Unda hati ya skit fupi kati ya watu wawili.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza jinsi siku ya kawaida inavyoonekana kwa mwanafunzi anayesoma sayansi ya kompyuta.",
+        "category": null
+    },
+    {
+        "instruction": "Kuna tofauti gani kati ya simu ya iOS na Android?",
+        "category": null
+    },
+    {
+        "instruction": "Hesabu jumla ya gharama ya bidhaa 5 ikiwa kila bidhaa itagharimu $10.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza orodha ya nambari 5 nasibu kati ya 1 na 10, ikijumuisha 1 na 10.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza mlinganisho kuelezea dhana changamano.",
+        "category": null
+    },
+    {
+        "instruction": "Taja Sheria tatu za Haki za Ulemavu.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza kwa nini ni muhimu kutumia sarufi na tahajia ifaayo.",
+        "category": null
+    },
+    {
+        "instruction": "Ni neno gani lingine la muda wa kila wiki?",
+        "category": null
+    },
+    {
+        "instruction": "Unda ukadiriaji wa ukaguzi wa chakula, huduma na mazingira katika mgahawa kwa kipimo cha 1-10.",
+        "category": null
+    },
+    {
+        "instruction": "Panga upya sentensi hii ili kuifanya isikike ya asili zaidi: \"Haiwezekani kwangu kufanya hivi\"",
+        "category": null
+    },
+    {
+        "instruction": "Unda swali la utafiti ili kuwauliza watu kuhusu nia yao ya kuhudhuria matukio ya mtandaoni.",
+        "category": null
+    },
+    {
+        "instruction": "Andika msimbo wa heksadesimali wa rangi ya RGB #9900FF",
+        "category": null
+    },
+    {
+        "instruction": "Eleza kanuni ya hatua ndogo zaidi.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza kiolesura cha programu ya ununuzi mtandaoni.",
+        "category": null
+    },
+    {
+        "instruction": "Tambua matunda matano ya kawaida",
+        "category": null
+    },
+    {
+        "instruction": "Tabiri hali ya hewa ya kesho huko San Francisco",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza orodha ya vitabu 5 vinavyofundisha watoto kuhusu hisia.",
+        "category": null
+    },
+    {
+        "instruction": "Unda hadithi ya watoto kuhusu joka ambalo hujifunza kucheza.",
+        "category": null
+    },
+    {
+        "instruction": "Jadili maendeleo ya mashine ya uchapishaji.",
+        "category": null
+    },
+    {
+        "instruction": "Hariri sentensi hii: \"Umefanya kazi nzuri sana.\"",
+        "category": null
+    },
+    {
+        "instruction": "Andika msimbo wa JavaScript ili kuonyesha ujumbe wa tahadhari wakati kitufe cha 'Wasilisha' kimebonyezwa.",
+        "category": null
+    },
+    {
+        "instruction": "Maoni potofu kuhusu ongezeko la joto duniani",
+        "category": null
+    },
+    {
+        "instruction": "Pendekeza njia ya ubunifu ya kupata wateja zaidi wa kufuata kampuni kwenye majukwaa ya mitandao ya kijamii.",
+        "category": null
+    },
+    {
+        "instruction": "Pendekeza njia za kupunguza utoaji wa kaboni",
+        "category": null
+    },
+    {
+        "instruction": "Njoo na maneno matatu yanayoishia kwa 'ion'.",
+        "category": null
+    },
+    {
+        "instruction": "Andika kichwa cha habari kuhusu uvunjaji wa data.",
+        "category": null
+    },
+    {
+        "instruction": "Unda orodha ya njia tano za kazi kwa mhandisi wa AI",
+        "category": null
+    },
+    {
+        "instruction": "Andika upya sentensi ifuatayo ukihakikisha kuwa ni sahihi kisarufi: \"Hawahitaji msaada wowote.\"",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza uhusiano wa sababu kati ya vitu viwili",
+        "category": null
+    },
+    {
+        "instruction": "Taja njia 3 zinazoweza kutumika kusafisha data.",
+        "category": null
+    },
+    {
+        "instruction": "Andika sentensi ya kujibu kauli ifuatayo: \"Hii itakuwa usiku mrefu.\"",
+        "category": null
+    },
+    {
+        "instruction": "Toa mfano wa mti unaochanua kutoka Marekani.",
+        "category": null
+    },
+    {
+        "instruction": "Taja mbinu tatu za kupunguza msongo wa mawazo.",
+        "category": null
+    },
+    {
+        "instruction": "Andika maelezo ya ngome ya kichawi katika msitu uliojaa.",
+        "category": null
+    },
+    {
+        "instruction": "Siku ya mia mbili thelathini na mbili ya mwaka ni siku gani?",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza orodha ya vivumishi 4 vinavyohusiana na nje.",
+        "category": null
+    },
+    {
+        "instruction": "Toa orodha ya faida za lishe inayotokana na mimea.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza orodha ya mawazo 10 ya nini cha kufanya na saa ya bure ya kila siku.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza mwito wa kuchukua hatua kwa chapisho la blogi kuhusu uwezo wa fikra chanya.",
+        "category": null
+    },
+    {
+        "instruction": "Toa baadhi ya misemo inayotumika sana katika Kiingereza ambayo inahusishwa na neno \"tamu\".",
+        "category": null
+    },
+    {
+        "instruction": "Tafadhali unda taarifa ya dhamira ya kukumbukwa kwa shirika la kutoa misaada.",
+        "category": null
+    },
+    {
+        "instruction": "Fikiria njia 5 za kupunguza taka ofisini.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza orodha ya vitu vya kuchukua kwenye safari ya kupanda mlima.",
+        "category": null
+    },
+    {
+        "instruction": "Ni nini madhumuni ya hoja ya KeyWord katika kazi ya Python sorted()?",
+        "category": null
+    },
+    {
+        "instruction": "Je, photosynthesis hutokeaje katika mimea?",
+        "category": null
+    },
+    {
+        "instruction": "Nini mazingira ya riwaya ya Moyo wa Giza?",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza methali ya kutafuta njia ya maisha.",
+        "category": null
+    },
+    {
+        "instruction": "Hariri sentensi ifuatayo kwa kuifanya iwe sahihi zaidi: \n\n\"Mgonjwa alikuwa na homa.\"",
+        "category": null
+    },
+    {
+        "instruction": "Andika mlinganyo ili kubadilisha Celsius hadi Fahrenheit.",
+        "category": null
+    },
+    {
+        "instruction": "Nipe vivumishi 5 kuelezea usiku.",
+        "category": null
+    },
+    {
+        "instruction": "Pendekeza kisawe kimoja cha neno \"ondoa\".",
+        "category": null
+    },
+    {
+        "instruction": "Unawezaje kulinda bustani kutoka kwa sungura?",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza sitiari inayowasilisha maana ya 'anza'.",
+        "category": null
+    },
+    {
+        "instruction": "Taja njia moja ya kupunguza nyayo za mazingira ya kaya yako.",
+        "category": null
+    },
+    {
+        "instruction": "Orodhesha faida na hasara za kutumia magari ya umeme.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza maelezo ya ubunifu ya bidhaa kwa kisambazaji cha mafuta muhimu.",
+        "category": null
+    },
+    {
+        "instruction": "Andika kishazi chenye maneno matatu kinachoonyesha kitu sawa na kifungu hiki cha maneno manne: \"fanya kazi bila kupumzika\".",
+        "category": null
+    },
+    {
+        "instruction": "Andika insha kuhusu kile kinachofanya kiongozi bora.",
+        "category": null
+    },
+    {
+        "instruction": "Toa pendekezo la jinsi ya kupunguza taka za plastiki.",
+        "category": null
+    },
+    {
+        "instruction": "Fikiria njia tano tofauti za kuboresha mazingira.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza hatua za kusafisha na kusafisha jikoni.",
+        "category": null
+    },
+    {
+        "instruction": "Andika sentensi ya ubunifu ukianza na \"Anga la usiku\".",
+        "category": null
+    },
+    {
+        "instruction": "Eleza mchakato wa kupata leseni ya udereva nchini Kanada.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza shairi la limerick kuhusu lemur.",
+        "category": null
+    },
+    {
+        "instruction": "Nionyeshe mfano wa sentensi amilifu ya sauti.",
+        "category": null
+    },
+    {
+        "instruction": "Toa mifano miwili kwa sitiari",
+        "category": null
+    },
+    {
+        "instruction": "Kadiria gharama ya kulala kwa usiku mmoja katika hoteli ya nyota tano katika Jiji la New York",
+        "category": null
+    },
+    {
+        "instruction": "Tambua kama taarifa ifuatayo ni kweli au si kweli: Adolf Hitler alikuwa Mwastria.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza kichwa cha karatasi ya utafiti kuhusu haki za wanyama.",
+        "category": null
+    },
+    {
+        "instruction": "Andika orodha ya mambo ya kufanya na yasiyofaa kwa mwakilishi wa huduma kwa wateja",
+        "category": null
+    },
+    {
+        "instruction": "Tafuta visawe vitatu vya neno lifuatalo: furaha",
+        "category": null
+    },
+    {
+        "instruction": "Pendekeza suluhisho ambalo litasaidia kuboresha mazingira.",
+        "category": null
+    },
+    {
+        "instruction": "Taja njia tatu za kawaida za uthibitishaji wa utambulisho.",
+        "category": null
+    },
+    {
+        "instruction": "Je, ni sifa gani tano muhimu za kiongozi?",
+        "category": null
+    },
+    {
+        "instruction": "Ni sifa gani ninazopaswa kuzingatia wakati wa kununua gari lililotumiwa?",
+        "category": null
+    },
+    {
+        "instruction": "Panga maneno haya ili kutengeneza hadithi fupi yenye maana: \"paka, usiku wa manane, popo, msitu, jificha\"",
+        "category": null
+    },
+    {
+        "instruction": "Jenga mazungumzo kwa watu wawili wanaobadilishana mazuri.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza hifadhidata kwa biashara ya kukodisha gari.",
+        "category": null
+    },
+    {
+        "instruction": "Andika ufafanuzi mfupi wa Mkataba wa Versailles.",
+        "category": null
+    },
+    {
+        "instruction": "Pendekeza riwaya maarufu kwa mtoto wa miaka kumi na nne.",
+        "category": null
+    },
+    {
+        "instruction": "Fanya muhtasari wa aya ifuatayo: \n\n\"Athari za mabadiliko ya hali ya hewa ni pana na zimekuwa zikiathiri mazingira kwa miongo kadhaa. Kila mwaka, mabadiliko hayo yanaonekana zaidi na yanaonekana zaidi, na kusababisha hatari kubwa ya ukame, mafuriko, joto kali na majanga yanayohusiana na hali ya hewa.\"",
+        "category": null
+    },
+    {
+        "instruction": "Unda kichocheo cha kiamsha kinywa chenye afya ikiwa ni pamoja na viungo na maelekezo ya kupikia.",
+        "category": null
+    },
+    {
+        "instruction": "Ni nini sababu kuu ya uchafuzi wa hewa?",
+        "category": null
+    },
+    {
+        "instruction": "Andika insha inayoshawishi kwa nini usafiri wa umma unapaswa kutumika zaidi.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza maana ya nahau \"cut to the chase\".",
+        "category": null
+    },
+    {
+        "instruction": "Andika maelezo mafupi ya fataki.",
+        "category": null
+    },
+    {
+        "instruction": "Andika alama tano zilizoko New York City.",
+        "category": null
+    },
+    {
+        "instruction": "Taja tabaka tatu za mtandao za modeli ya OSI",
+        "category": null
+    },
+    {
+        "instruction": "Eleza sababu na dalili za unyogovu.",
+        "category": null
+    },
+    {
+        "instruction": "Unaweza kufanya nini ili kuwa mwangalifu zaidi wa mazingira?",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza mchezo unaofuata sheria za chess lakini unaoburudisha wachezaji wengi zaidi kuliko mchezo wa kitamaduni.",
+        "category": null
+    },
+    {
+        "instruction": "Unda chapisho la blogi ya tovuti kuhusu ongezeko la joto duniani.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza sura ya pande tatu",
+        "category": null
+    },
+    {
+        "instruction": "Tambua aina ya sentensi ifuatayo: \"Alice anafurahi sana kuhusu matokeo.\"",
+        "category": null
+    },
+    {
+        "instruction": "Eleza maana ya nahau, \"Haijaisha hadi mwanamke mnene aimbe",
+        "category": null
+    },
+    {
+        "instruction": "Taja matunda matatu na mboga tatu",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza mada tatu mbadala za hadithi kuhusu nguvu ya urafiki.",
+        "category": null
+    },
+    {
+        "instruction": "Hebu jadili mawazo matatu bunifu ya kampeni ya uuzaji kwa kampuni ya vyakula vilivyogandishwa.",
+        "category": null
+    },
+    {
+        "instruction": "Kusanya majina ya wajasiriamali 10 waliofanikiwa zaidi",
+        "category": null
+    },
+    {
+        "instruction": "Kuhesabu nguvu ya 5 ya 3.",
+        "category": null
+    },
+    {
+        "instruction": "Niambie mashauri matatu ya usalama wa maelezo ili kulinda data ya kibinafsi",
+        "category": null
+    },
+    {
+        "instruction": "Unda kiolesura cha ukurasa wa wavuti kwa programu ya kuhariri picha.",
+        "category": null
+    },
+    {
+        "instruction": "Taja miji mitano ya India.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza jinsi uhalisia pepe unaweza kutumika kwa madhumuni ya kielimu.",
+        "category": null
+    },
+    {
+        "instruction": "Fikiria kuwa umepewa msaidizi wa kibinafsi. Toa maagizo 3 ambayo msaidizi huyu anapaswa kufuata.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza maswali 5 ambayo yatatumika kupima maarifa ya mtu kuhusu jedwali la upimaji.",
+        "category": null
+    },
+    {
+        "instruction": "Jenga hadithi fupi yenye somo la maadili",
+        "category": null
+    },
+    {
+        "instruction": "Eleza mchakato wa kutengeneza siagi ya karanga.",
+        "category": null
+    },
+    {
+        "instruction": "Andika hatua unazoweza kuchukua ili kuongeza tija yako.",
+        "category": null
+    },
+    {
+        "instruction": "Je! ni maoni gani ya umma ya magari ya umeme ya Tesla?",
+        "category": null
+    },
+    {
+        "instruction": "Kuhesabu tofauti kati ya 8 na 9.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza chapisho la blogu linalokuza manufaa ya mtindo wa maisha ya mboga",
+        "category": null
+    },
+    {
+        "instruction": "Je, kalamu ya kwanza ya uchapishaji ya 3D ni ipi?",
+        "category": null
+    },
+    {
+        "instruction": "Eleza tofauti kati ya tamaduni za Mashariki na Magharibi.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza nukuu maarufu inayohusiana na urafiki.",
+        "category": null
+    },
+    {
+        "instruction": "Orodhesha hatua tatu za usindikaji wa kumbukumbu.",
+        "category": null
+    },
+    {
+        "instruction": "Maneno \"mara moja kwenye mwezi wa bluu\" yanatoka wapi?",
+        "category": null
+    },
+    {
+        "instruction": "Bainisha 'mtandao wa neva bandia'.",
+        "category": null
+    },
+    {
+        "instruction": "Pata picha ya Creative Commons inayoelezea dhana ya siku za joto za kiangazi.",
+        "category": null
+    },
+    {
+        "instruction": "Unda mlinganisho kuelezea msaidizi wa AI.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza umuhimu wa ubinafsi katika jamii.",
+        "category": null
+    },
+    {
+        "instruction": "Changanya pamoja nusu kijiko cha chai cha baking soda, kijiko kimoja cha chumvi na kijiko kimoja cha maji ya limao",
+        "category": null
+    },
+    {
+        "instruction": "Ni sifa gani unahitaji kufanikiwa katika taaluma ya programu?",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza hadithi asili iliyowekwa katika mandhari ya jiji.",
+        "category": null
+    },
+    {
+        "instruction": "Panga maneno yafuatayo kwa alfabeti: bluu, nyeupe, fedha, njano",
+        "category": null
+    },
+    {
+        "instruction": "Fanya muhtasari wa ratiba ya matukio muhimu kuelekea Vita vya Kidunia vya pili.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza chapisho la blogi kuhusu jinsi teknolojia inavyobadilisha jinsi watu wanavyowasiliana",
+        "category": null
+    },
+    {
+        "instruction": "Orodhesha faida tano za kuwa na programu ya simu.",
+        "category": null
+    },
+    {
+        "instruction": "Ni ipi njia bora zaidi ya kujihamasisha kufanya mazoezi?",
+        "category": null
+    },
+    {
+        "instruction": "Eleza 'kufikiri muhimu' ni nini na utoe mfano wa jinsi inavyoweza kutumika.",
+        "category": null
+    },
+    {
+        "instruction": "Toa vidokezo vitatu vya kuunda tovuti inayofaa",
+        "category": null
+    },
+    {
+        "instruction": "Orodhesha faida 5 za kumiliki mnyama kipenzi.",
+        "category": null
+    },
+    {
+        "instruction": "Andika hati ya wasilisho la dakika 5 kuhusu umuhimu wa kuchakata tena.",
+        "category": null
+    },
+    {
+        "instruction": "Tunga shairi la kipekee lenye neno \"theluji\".",
+        "category": null
+    },
+    {
+        "instruction": "Ainisha sentensi ifuatayo kulingana na hisia zake:\n\nNilipata uzoefu mbaya katika mgahawa",
+        "category": null
+    },
+    {
+        "instruction": "Andika haiku kuhusu kuwa na furaha.",
+        "category": null
+    },
+    {
+        "instruction": "Toa mifano miwili mizuri ya huduma kwa wateja.",
+        "category": null
+    },
+    {
+        "instruction": "Badilisha mhandisi kijisehemu cha msimbo kifuatacho na ueleze kinachoendelea katika sentensi 4.\n\nthamani x = 3\nvar y = x + 4",
+        "category": null
+    },
+    {
+        "instruction": "Eleza misingi ya HTML kwa anayeanza.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza kwa nini watu wananunua hisa.",
+        "category": null
+    },
+    {
+        "instruction": "Hariri kauli ifuatayo: 'Kila mtu ni maalum'.",
+        "category": null
+    },
+    {
+        "instruction": "Unda programu ya Java inayoiga safu ya kete.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza wazo la hadithi ya riwaya.",
+        "category": null
+    },
+    {
+        "instruction": "Unda kifungu cha maneno cha kipekee ambacho kinanasa kiini cha urafiki.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza sentensi kadhaa zinazoelezea alasiri ya kiangazi.",
+        "category": null
+    },
+    {
+        "instruction": "Tunga sentensi ukitumia kifungu cha maneno \"mara moja kwa wakati\"",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza orodha ya maneno ya kawaida katika lugha ya Kiingereza.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza mkakati wa uuzaji unaoendeshwa na data wa filamu mpya.",
+        "category": null
+    },
+    {
+        "instruction": "Toa ufafanuzi wa \"algae\".",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza hoja ya sababu inayoelezea kwa nini nishati ya jua inafaa zaidi kuliko makaa ya mawe.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza matukio ya kihistoria yaliyosababisha kuundwa kwa Umoja wa Mataifa.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza orodha ya viambato vitano vya sumu vinavyopatikana kwenye sigara.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza sitiari ili kulinganisha hisia ya kuridhika na.",
+        "category": null
+    },
+    {
+        "instruction": "Pata jumla ya nambari 30 chanya za kwanza.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza kwa nini sarafu za kidijitali zinapata umaarufu.",
+        "category": null
+    },
+    {
+        "instruction": "Ainisha sentensi ifuatayo kama sentensi tangazo au sentensi ya kuhoji.\n\nJe! ni nyota ngapi kwenye Milky Way?",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza sentensi ukitumia maneno \"nunua\", \"mtandaoni\", na \"duka\".",
+        "category": null
+    },
+    {
+        "instruction": "Fikiria kauli ifuatayo: \"Paka ni bora kuliko mbwa\". Ihariri kwa njia ya ubunifu zaidi iwezekanavyo.",
+        "category": null
+    },
+    {
+        "instruction": "Toa mfano wa maneno \"kuwa na shoka la kusaga\".",
+        "category": null
+    },
+    {
+        "instruction": "Toa maoni mazuri kuhusiana na huduma kwa wateja.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza angalau njia 5 za kupunguza taka za karatasi.",
+        "category": null
+    },
+    {
+        "instruction": "Badilisha binary 1111000 kuwa desimali.",
+        "category": null
+    },
+    {
+        "instruction": "Chagua sentensi sahihi na kamili:\n\nA) Maria alitakiwa kukutana nami kituoni\nB) Maria alitakiwa kukutana nami kituoni",
+        "category": null
+    },
+    {
+        "instruction": "Taja exoplanet iliyogunduliwa hivi majuzi.",
+        "category": null
+    },
+    {
+        "instruction": "Nipe orodha ya wanariadha bora wa Olimpiki kutoka miaka mitano iliyopita.",
+        "category": null
+    },
+    {
+        "instruction": "Unda hali ya dhahania.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza uzoefu wa kuonja limau kwa mara ya kwanza.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza maana ya methali \"Bahati Hupendelea Mwenye Ujasiri\".",
+        "category": null
+    },
+    {
+        "instruction": "Unda mti wa familia unaoonyesha washiriki tofauti wa familia yako.",
+        "category": null
+    },
+    {
+        "instruction": "Pendekeza mkahawa kwa mtu anayependa vyakula vya Kimeksiko.",
+        "category": null
+    },
+    {
+        "instruction": "Jibu swali: Mfumo wa ikolojia ni nini?",
+        "category": null
+    },
+    {
+        "instruction": "Unda fumbo linalorejelea siasa za sasa.",
+        "category": null
+    },
+    {
+        "instruction": "Amua idadi ya watu wa Jiji la New York.",
+        "category": null
+    },
+    {
+        "instruction": "Ongeza nambari zifuatazo bila kutumia kikokotoo: 37 + 63",
+        "category": null
+    },
+    {
+        "instruction": "Je! ni wastani gani wa umri wa watu wanaoishi Uingereza?",
+        "category": null
+    },
+    {
+        "instruction": "Je, ni jambo gani muhimu zaidi la kuzingatia unapoomba mkopo?",
+        "category": null
+    },
+    {
+        "instruction": "Tafuta homonimu tano za neno 'bay'.",
+        "category": null
+    },
+    {
+        "instruction": "Toa mfano wa matumizi duni ya rasilimali ofisini",
+        "category": null
+    },
+    {
+        "instruction": "Andika sentensi ukitumia homofoni \"won/one.\"",
+        "category": null
+    },
+    {
+        "instruction": "Eleza wazo la uboreshaji",
+        "category": null
+    },
+    {
+        "instruction": "Tambua tabia mbili za mhusika mkuu wa filamu ya kutisha.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza kwa nini watu wanahamasishwa kuchangia misaada.",
+        "category": null
+    },
+    {
+        "instruction": "Toa orodha ya kazi tofauti ambazo muundo wa lugha ya GPT unaweza kukamilisha.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza jinsi uuzaji wa barua pepe unaweza kusaidia kuongeza mauzo.",
+        "category": null
+    },
+    {
+        "instruction": "Fanya muhtasari wa maisha ya Thomas Edison katika sentensi tatu",
+        "category": null
+    },
+    {
+        "instruction": "Eleza athari za kisukari cha aina ya 2 kwenye mwili.",
+        "category": null
+    }
+]

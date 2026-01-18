@@ -1,0 +1,802 @@
+[
+    {
+        "instruction": "Pendekeza kazi inayofaa kwa mtu binafsi aliye na digrii katika uhasibu na fedha.",
+        "category": null
+    },
+    {
+        "instruction": "Taja zana tatu za programu kwa taswira ya data.",
+        "category": null
+    },
+    {
+        "instruction": "Taja kifaa cha jikoni kinachotumika sana.",
+        "category": null
+    },
+    {
+        "instruction": "Tunga sentensi ukitumia maneno yafuatayo: gari, paka, zawadi.",
+        "category": null
+    },
+    {
+        "instruction": "Unda muundo wa data wa rafu kwa kutumia safu",
+        "category": null
+    },
+    {
+        "instruction": "Unda hotuba ambayo inawahimiza watu kuchangia programu za misaada ya majanga.",
+        "category": null
+    },
+    {
+        "instruction": "Andika aya kuhusu jinsi teknolojia inavyounda upya mfumo wa elimu.",
+        "category": null
+    },
+    {
+        "instruction": "Bainisha mhusika katika sentensi hii: \"Mike alishika basi kwenda shuleni\"",
+        "category": null
+    },
+    {
+        "instruction": "Eleza tofauti kati ya ushindani kamili na usio kamili.",
+        "category": null
+    },
+    {
+        "instruction": "Andika sentensi chache kuhusu mfano wa mafanikio yenye maana",
+        "category": null
+    },
+    {
+        "instruction": "Toa jibu kwa swali la mtumiaji: \"Je, ninahitaji pasipoti kutembelea Uingereza?\"",
+        "category": null
+    },
+    {
+        "instruction": "Unda orodha ya vitu 10 ambavyo kila jikoni inahitaji.",
+        "category": null
+    },
+    {
+        "instruction": "Unganisha maneno yafuatayo ili maneno yajue kila mmoja: tumbili, tembo, twiga.",
+        "category": null
+    },
+    {
+        "instruction": "Je, ni sura gani ya kijiometri ina pande 5 na pembe 5?",
+        "category": null
+    },
+    {
+        "instruction": "Eleza kwa nini uchafuzi wa hewa ni tatizo la kimataifa.",
+        "category": null
+    },
+    {
+        "instruction": "Je, ni mahitaji gani ya msingi ya programu ya simu yenye mafanikio?",
+        "category": null
+    },
+    {
+        "instruction": "Andika shairi ukitumia maneno yafuatayo: ukungu, huzuni, umbali, ndoto.",
+        "category": null
+    },
+    {
+        "instruction": "Tafuta makala ya habari kuhusu matukio ya sasa",
+        "category": null
+    },
+    {
+        "instruction": "Unawezaje kuunda jedwali la egemeo katika Excel?",
+        "category": null
+    },
+    {
+        "instruction": "Andika maelezo ya kusisimua ya ufalme kumi na moja.",
+        "category": null
+    },
+    {
+        "instruction": "Andika hadithi kuhusu kiumbe wa kichawi ambaye wengine hawapendi.",
+        "category": null
+    },
+    {
+        "instruction": "Fanya mfano wa 3-dimensional wa mchemraba.",
+        "category": null
+    },
+    {
+        "instruction": "Mwambie msaidizi abadilishe rangi ya usuli ya hati kuwa bluu.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza kipengele cha programu ya simu ambayo inaweza kuongeza ushiriki wa mtumiaji.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza harakati za wafanyikazi ni nini",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza mascot ya mtindo wa katuni kwa duka la vifaa vya kuchezea.",
+        "category": null
+    },
+    {
+        "instruction": "Taja ushirikina 3 kutoka duniani kote.",
+        "category": null
+    },
+    {
+        "instruction": "Panga maneno yafuatayo kwa mpangilio wa alfabeti: \"chuo kikuu, mpira wa kikapu, msimamizi\"",
+        "category": null
+    },
+    {
+        "instruction": "Pendekeza shughuli ya nasibu inayoweza kufanywa nje.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza algoriti ili kutambua ikiwa sentensi ni chanya au la.",
+        "category": null
+    },
+    {
+        "instruction": "Tunawezaje kufanya hisia nzuri katika mahojiano?",
+        "category": null
+    },
+    {
+        "instruction": "Taja vivinjari 3 maarufu vya wavuti.",
+        "category": null
+    },
+    {
+        "instruction": "Pendekeza hatua tatu za kukaa na motisha",
+        "category": null
+    },
+    {
+        "instruction": "Unda kifungu cha maelezo kwa mchoro unaoangazia msitu wakati wa machweo",
+        "category": null
+    },
+    {
+        "instruction": "Eleza muundo wa joto wa angahewa ya Jupita.",
+        "category": null
+    },
+    {
+        "instruction": "Linganisha na utofautishe maelezo ya karatasi na ya kidijitali.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza hadithi kuhusu ulimwengu ambao haupati giza kamwe.",
+        "category": null
+    },
+    {
+        "instruction": "Upimaji wa sanduku nyeusi ni nini na kwa nini ni muhimu?",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza sentensi inayotumia vivumishi viwili kati ya vifuatavyo: woga, mbunifu, angavu.",
+        "category": null
+    },
+    {
+        "instruction": "Je, unaweza kutaja mimea mitano inayoishi jangwani?",
+        "category": null
+    },
+    {
+        "instruction": "Je, ni aina gani ya mikakati ya uuzaji wa kidijitali ambayo kampuni inapaswa kutumia ili kuongeza uwepo wake mtandaoni?",
+        "category": null
+    },
+    {
+        "instruction": "Andika shairi la hadi mistari 10 inayoonyesha shukrani.",
+        "category": null
+    },
+    {
+        "instruction": "Unda mazungumzo ambamo wahusika wawili wanajadili tatizo la kisayansi.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza tasnifu ya kipekee kwa karatasi ya utafiti kuhusu nafasi ya teknolojia katika elimu.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza kwa nini miundo ya mbao hutumiwa katika ujenzi",
+        "category": null
+    },
+    {
+        "instruction": "Ni aina gani ya hafla ambayo ingehitaji msimamizi wa sherehe?",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza sentensi ya ulimwengu halisi kwa kutumia neno \"taswira\".",
+        "category": null
+    },
+    {
+        "instruction": "Je, teknolojia huathiri mawasiliano kwa njia gani?",
+        "category": null
+    },
+    {
+        "instruction": "Fanya muhtasari wa matukio ya filamu Siku Baada ya Kesho.",
+        "category": null
+    },
+    {
+        "instruction": "Tambua homofoni katika sentensi hii: Nyuki wa nyuki kwenye mti.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza mada ya shairi la 'Njia Isiyochukuliwa'.",
+        "category": null
+    },
+    {
+        "instruction": "Andika hadithi kuhusu uvamizi wa wageni",
+        "category": null
+    },
+    {
+        "instruction": "Unda mwongozo wa mfanyakazi unaoonyesha majukumu na wajibu wa msanidi wa wavuti.",
+        "category": null
+    },
+    {
+        "instruction": "Tambua vipengele viwili vya kompyuta.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza sentensi yenye vivumishi viwili.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza kichocheo kipya kwa kutumia viungo hivi 3: mayai, nyanya na jibini.",
+        "category": null
+    },
+    {
+        "instruction": "Linganisha na utofautishe usindikaji wa lugha asilia (NLP) na maono ya kompyuta.",
+        "category": null
+    },
+    {
+        "instruction": "Kwa kutumia maneno kwenye mabano, tengeneza sentensi yenye maana sahihi.",
+        "category": null
+    },
+    {
+        "instruction": "Pata sufuri za chaguo za kukokotoa f(x) = 3x2 \u2013 10x + 4",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza chaguo la kukokotoa ili kuangalia kama mti wa binary umesawazishwa au la.",
+        "category": null
+    },
+    {
+        "instruction": "Fanya muhtasari wa mambo makuu ya kifungu \"Jinsi COVID-19 inavyounda upya uchumi wa dunia\"",
+        "category": null
+    },
+    {
+        "instruction": "Unda algoriti ambayo inarudisha nambari kuu zote hadi nambari fulani ya kuingiza",
+        "category": null
+    },
+    {
+        "instruction": "Changanua sentensi ifuatayo ili kubainisha kiima, kitenzi na mtendwa: Paka alimfukuza panya.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza jinsi njia ya ishara ya Kiboko inavyodhibiti ukubwa wa kiungo.",
+        "category": null
+    },
+    {
+        "instruction": "Orodhesha sahani 5 maarufu za Kiitaliano.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza mfano wa mkakati wa ushindani",
+        "category": null
+    },
+    {
+        "instruction": "Unda orodha ya hatua tano za utaratibu wa kila siku asubuhi.",
+        "category": null
+    },
+    {
+        "instruction": "Andika kidokezo muhimu kwa kuzungumza hadharani.",
+        "category": null
+    },
+    {
+        "instruction": "Toa orodha ya manufaa ya kutumia vyanzo vya nishati mbadala.",
+        "category": null
+    },
+    {
+        "instruction": "Ni faida gani za kutumia teknolojia ya blockchain katika tasnia ya fedha?",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza mwisho mbadala wa sinema \"Kutafuta Furaha\".",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza mkakati wa kufanya mpango wa kifedha wa kustaafu.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza bango la kuhimiza watu kuokoa umeme.",
+        "category": null
+    },
+    {
+        "instruction": "Taja tovuti moja ya mitandao ya kijamii",
+        "category": null
+    },
+    {
+        "instruction": "Eleza kazi ya hypothalamus",
+        "category": null
+    },
+    {
+        "instruction": "Eleza jinsi vuli ilivyo huko New York",
+        "category": null
+    },
+    {
+        "instruction": "Eleza tatizo la kikuza karatasi.",
+        "category": null
+    },
+    {
+        "instruction": "Sababu za Vita vya Kwanza vya Ulimwengu zilikuwa nini?",
+        "category": null
+    },
+    {
+        "instruction": "Toa mifano 5 ya semi za nahau.",
+        "category": null
+    },
+    {
+        "instruction": "Orodhesha vipengele mbalimbali vya kamera ya kidijitali.",
+        "category": null
+    },
+    {
+        "instruction": "Changanua ufanisi wa mkakati wa Marekani wa kupima COVID-19",
+        "category": null
+    },
+    {
+        "instruction": "Unda wimbo wa noti 3.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza orodha ya ujuzi 5 ambao mwanasayansi wa data anapaswa kuwa nao.",
+        "category": null
+    },
+    {
+        "instruction": "Toa suluhisho la kupunguza uzalishaji kutoka kwa usafirishaji.",
+        "category": null
+    },
+    {
+        "instruction": "Bainisha sentensi ifuatayo kuwa kweli au si kweli: Rocky Balboa alikuwa bondia kutoka Uingereza",
+        "category": null
+    },
+    {
+        "instruction": "Tambua nchi yenye watu wengi wanaoishi katika umaskini.",
+        "category": null
+    },
+    {
+        "instruction": "Fikiria unazungumza na mteja ambaye anatafuta ushauri juu ya kuchagua mfumo wa simu. Andika jibu ambalo hutoa taarifa muhimu na kubainisha manufaa ya mfumo wa wingu.",
+        "category": null
+    },
+    {
+        "instruction": "Je! ni tofauti gani kuu kati ya programu ya wavuti na programu ya rununu?",
+        "category": null
+    },
+    {
+        "instruction": "Kwa kuzingatia dondoo hili, pendekeza mada kwa wasomaji wake:\n\nMatumizi ya teknolojia ya blockchain yamekuwa yakiongezeka kwa kiasi kikubwa katika miaka michache iliyopita kutokana na uimara wake, usalama, na kutegemewa.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza dhana ya ufunguo wa faragha katika cryptography.",
+        "category": null
+    },
+    {
+        "instruction": "Unda ratiba ya safari ya safari ya siku 5 kwenda Las Vegas",
+        "category": null
+    },
+    {
+        "instruction": "Angalia kichocheo cha kuku wa kukaanga.",
+        "category": null
+    },
+    {
+        "instruction": "Pendekeza vitafunio vyenye afya katikati ya asubuhi.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza sentensi inayofaa kwa riwaya ya matukio.",
+        "category": null
+    },
+    {
+        "instruction": "Unda mhusika wa kubuni ukitumia archetype ya Safari ya shujaa.",
+        "category": null
+    },
+    {
+        "instruction": "Taja aina mbili za mbinu za taswira ya data.",
+        "category": null
+    },
+    {
+        "instruction": "Je, ni jibu gani linalofaa unapokutana na mtu?",
+        "category": null
+    },
+    {
+        "instruction": "Badilisha orodha hii: maapulo, peari, machungwa",
+        "category": null
+    },
+    {
+        "instruction": "Chunguza mpishi maarufu wa mimea, fanya muhtasari wa kazi yao na upe kiunga cha tovuti yao.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza anatomy ya baiskeli.",
+        "category": null
+    },
+    {
+        "instruction": "Andika vidokezo 5 vya kufanya kazi ukiwa nyumbani.",
+        "category": null
+    },
+    {
+        "instruction": "Toa sababu kwa nini ni wazo mbaya kusubiri hadi dakika ya mwisho ili kuanza kazi.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza \"Janga\" ni nini kulingana na Wikipedia.",
+        "category": null
+    },
+    {
+        "instruction": "Unda maswali matano yenye chaguo nyingi kuhusiana na sayansi ya Dunia.",
+        "category": null
+    },
+    {
+        "instruction": "Njoo na jina la bidhaa hii mpya.",
+        "category": null
+    },
+    {
+        "instruction": "Je! ni kikomo gani cha kasi cha juu kwa eneo la makazi?",
+        "category": null
+    },
+    {
+        "instruction": "Andika muhtasari wa maneno 200 wa shairi \"Njia Isiyochukuliwa\"",
+        "category": null
+    },
+    {
+        "instruction": "Eleza vipengele 4 vya muundo wa hadithi.",
+        "category": null
+    },
+    {
+        "instruction": "Taja aina mbili za mafunzo yasiyosimamiwa.",
+        "category": null
+    },
+    {
+        "instruction": "Weka thamani ya x ikiwa 4x + 16 = 48.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza kwa maneno 50 au chini ya hapo jinsi huduma kwa wateja inavyoweza kuathiri uaminifu wa wateja.",
+        "category": null
+    },
+    {
+        "instruction": "Unda mlinganisho kwa algorithm",
+        "category": null
+    },
+    {
+        "instruction": "Eleza muundo wa jicho la mwanadamu",
+        "category": null
+    },
+    {
+        "instruction": "Taja faida mbili za kutumia muundo wa GPT kukamilisha kazi.",
+        "category": null
+    },
+    {
+        "instruction": "Toa mifano mitatu ya wahusika katika \"Harry Potter\" na nguvu maalum za kichawi",
+        "category": null
+    },
+    {
+        "instruction": "Eleza uhusiano kati ya nchi za eneo la Asia.",
+        "category": null
+    },
+    {
+        "instruction": "Andika hadithi inayohusiana kuhusu kijana aliyemaliza shule ya upili.",
+        "category": null
+    },
+    {
+        "instruction": "Tuna matufaha 8 na machungwa 4. Je, tuna matunda mangapi kwa jumla?",
+        "category": null
+    },
+    {
+        "instruction": "Unda orodha ya mada za kujadili katika mjadala kuhusu udhibiti wa bunduki.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza programu ya rununu ili kuonyesha utabiri wa hali ya hewa",
+        "category": null
+    },
+    {
+        "instruction": "Unda programu ya kompyuta ambayo hurekebisha makosa katika maandishi.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza tofauti kati ya akili ya bandia na kujifunza kwa mashine",
+        "category": null
+    },
+    {
+        "instruction": "Je, longitudo na latitudo ya Beijing, Uchina ni nini?",
+        "category": null
+    },
+    {
+        "instruction": "Unaweza kunipa sababu tatu kwa nini misitu ni muhimu?",
+        "category": null
+    },
+    {
+        "instruction": "Unda katuni ya kuchekesha kuhusu mwalimu.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza orodha ya tahadhari zinazofaa za usalama za kuchukua unaposafiri kwa meli.",
+        "category": null
+    },
+    {
+        "instruction": "Je, ni mkakati gani mzuri wa kukabiliana na msongo wa mawazo?",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza nadharia juu ya sababu ya mabadiliko ya hali ya hewa",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza majina mbadala ya biashara mpya.",
+        "category": null
+    },
+    {
+        "instruction": "Nukuu msemo kuhusu urafiki na ueleze maana yake.",
+        "category": null
+    },
+    {
+        "instruction": "Je, ni sehemu gani za kitabu?",
+        "category": null
+    },
+    {
+        "instruction": "Jenga mlinganisho kwa kutumia maneno yafuatayo: chuma, sumaku",
+        "category": null
+    },
+    {
+        "instruction": "Andika aya inayoonyesha tofauti kati ya kucheza michezo ya timu na michezo ya mtu binafsi.",
+        "category": null
+    },
+    {
+        "instruction": "Toa mifano mitatu ya vyanzo vya nishati mbadala.",
+        "category": null
+    },
+    {
+        "instruction": "Panga upya maneno haya manne ili kutengeneza sentensi ya Kiingereza: \"editor best become engaged\"",
+        "category": null
+    },
+    {
+        "instruction": "Je, ni njia gani unaweza kuzuia ongezeko la joto duniani?",
+        "category": null
+    },
+    {
+        "instruction": "Unda mtu wa mteja kwa biashara ya kuuza fanicha za zamani za bei ghali.",
+        "category": null
+    },
+    {
+        "instruction": "Je, ni vipimo vipi vinne vya akili kulingana na Gardner?",
+        "category": null
+    },
+    {
+        "instruction": "Toa sababu mbili kwa nini kutumia akili bandia kunaweza kuboresha huduma kwa wateja.",
+        "category": null
+    },
+    {
+        "instruction": "Unda mchoro wa mhusika anayeitwa Jack kwa kutumia vivumishi vitatu pekee.",
+        "category": null
+    },
+    {
+        "instruction": "Gawanya sentensi ifuatayo katika sentensi mbili za kutangaza: \"Chakula kilikuwa kitamu na huduma ilikuwa bora\".",
+        "category": null
+    },
+    {
+        "instruction": "Ni mambo gani mawili ambayo yanaweza kuathiri msuguano kati ya nyuso mbili?",
+        "category": null
+    },
+    {
+        "instruction": "Andika ukaguzi wa kitabu unachopenda.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza orodha ya tabia tano tofauti ambazo watu huonyesha katika hali tofauti.",
+        "category": null
+    },
+    {
+        "instruction": "Toa mfano wa njia AI inaweza kutumika katika sekta ya afya.",
+        "category": null
+    },
+    {
+        "instruction": "Orodhesha njia tano kuu za habari nchini India",
+        "category": null
+    },
+    {
+        "instruction": "Unda taksonomia ya aina zote za maandishi.",
+        "category": null
+    },
+    {
+        "instruction": "Tathmini kauli ifuatayo: \"Chakula-hai ni bora kuliko chakula kisicho hai\"",
+        "category": null
+    },
+    {
+        "instruction": "Unda akaunti ya Twitter kwa ajili ya kuanzisha teknolojia.",
+        "category": null
+    },
+    {
+        "instruction": "Unda kampeni ya uuzaji ili kukuza huduma mpya ya utoaji wa chakula.",
+        "category": null
+    },
+    {
+        "instruction": "Hariri sentensi ifuatayo ili kufafanua zaidi: \"Kulikuwa na joto.\"",
+        "category": null
+    },
+    {
+        "instruction": "Eleza kwa nini ni muhimu kusafisha na kuandaa data kabla ya uchanganuzi.",
+        "category": null
+    },
+    {
+        "instruction": "Je, ni sawa na Uingereza ya 'Hamburger'?",
+        "category": null
+    },
+    {
+        "instruction": "Weka maneno yafuatayo kwa utaratibu wa alfabeti: kuandika, kusubiri, kutembea",
+        "category": null
+    },
+    {
+        "instruction": "Je, ungefanyaje kujaribu chatbot?",
+        "category": null
+    },
+    {
+        "instruction": "Andika msimbo wa uwongo ili kutekeleza upangaji wa kuunganisha.",
+        "category": null
+    },
+    {
+        "instruction": "Pendekeza mavazi ya harusi kwa sherehe ya nje ya majira ya joto",
+        "category": null
+    },
+    {
+        "instruction": "Taja aina tano za vinywaji.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza mizunguko ya mwezi",
+        "category": null
+    },
+    {
+        "instruction": "Toa mfano wa kitu kinachowakilisha dhana ya haki.",
+        "category": null
+    },
+    {
+        "instruction": "Tambua mada ya kuvutia ambayo imejadiliwa hivi karibuni katika siasa.",
+        "category": null
+    },
+    {
+        "instruction": "Unda hadithi ambapo mhusika mkuu anashinda kizuizi kikubwa.",
+        "category": null
+    },
+    {
+        "instruction": "Ni uchoraji gani maarufu wa Leonardo da Vinci?",
+        "category": null
+    },
+    {
+        "instruction": "Je, mionzi huathiri vipi viumbe?",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza mazungumzo kati ya mwalimu na mwanafunzi kuhusu kazi iliyochelewa",
+        "category": null
+    },
+    {
+        "instruction": "Tunga mapitio ya mkahawa kwa kutumia angalau vivumishi vitano",
+        "category": null
+    },
+    {
+        "instruction": "Unda mazungumzo kati ya marafiki wawili wakizungumza kuhusu filamu mpya waliyotazama",
+        "category": null
+    },
+    {
+        "instruction": "Unda muhtasari wa hadithi fupi iliyowekwa katika ulimwengu wa baada ya apocalyptic",
+        "category": null
+    },
+    {
+        "instruction": "Panga maneno yafuatayo katika makundi mawili:\nMichezo, Soka, Kukimbia, Kunyanyua Mizani",
+        "category": null
+    },
+    {
+        "instruction": "Tamka \"furaha\" katika lugha ya ishara",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza mada mbili zinazowezekana za hadithi kuhusu roboti anayepanga kutawala ulimwengu.",
+        "category": null
+    },
+    {
+        "instruction": "Andika hadithi yenye sentensi 5 kuhusu mkulima na mbweha.",
+        "category": null
+    },
+    {
+        "instruction": "Unda sitiari kwa dhamira ya mtu kutimiza malengo yake.",
+        "category": null
+    },
+    {
+        "instruction": "Kuna tofauti gani kati ya uchanganuzi wa kisemantiki fiche na uundaji wa mada?",
+        "category": null
+    },
+    {
+        "instruction": "Eleza kwa nini maji ni muhimu kwa wanadamu.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza njia ya safari ya kubebea mizigo kwa wiki mbili kupitia Hifadhi ya Kitaifa ya Yosemite",
+        "category": null
+    },
+    {
+        "instruction": "Ni vidokezo vitatu vipi vya kuokoa pesa?",
+        "category": null
+    },
+    {
+        "instruction": "Rejesha sentensi hii: Watoto hawapaswi kucheza na mechi.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza msimbo ili kumwuliza mtumiaji kuandika jina lake",
+        "category": null
+    },
+    {
+        "instruction": "Tafuta jina la mlima mrefu zaidi ulimwenguni.",
+        "category": null
+    },
+    {
+        "instruction": "Mlo wa mnyama huathirije tabia yake?",
+        "category": null
+    },
+    {
+        "instruction": "Orodhesha sababu 3 zinazowezekana za mabadiliko ya hali ya hewa.",
+        "category": null
+    },
+    {
+        "instruction": "Eleza Sheria ya Saba katika uuzaji.",
+        "category": null
+    },
+    {
+        "instruction": "Taja kemikali tatu zinazotumika katika vizima moto.",
+        "category": null
+    },
+    {
+        "instruction": "Tambua neno lenye wimbo wa neno \"macho\". Toa neno.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza hadithi kuhusu knight juu ya jitihada za kuokoa binti mfalme.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza methali yenye maneno manne kuhusu uamuzi.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza sentensi inayokubalika kuhusu ulimwengu wa dystopian",
+        "category": null
+    },
+    {
+        "instruction": "Andika hati ya chatbot ya huduma kwa wateja.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza tukio la kweli kwa kutumia vitu vya 3D.",
+        "category": null
+    },
+    {
+        "instruction": "Tengeneza hati ya kumsalimia mteja mtandaoni",
+        "category": null
+    },
+    {
+        "instruction": "Badilisha maneno haya kuwa sentensi: Car - Ran - Windshield",
+        "category": null
+    },
+    {
+        "instruction": "Taja nchi 3 ambazo ziko katika bara la Afrika.",
+        "category": null
+    },
+    {
+        "instruction": "Amua formula ya molekuli ya maji.",
+        "category": null
+    },
+    {
+        "instruction": "Taja tofauti kuu kati ya maneno 'akili bandia' na 'kujifunza kwa mashine'",
+        "category": null
+    },
+    {
+        "instruction": "Niambie kuhusu tovuti maarufu katika Jiji la New York",
+        "category": null
+    },
+    {
+        "instruction": "Kwa kuzingatia ingizo lifuatalo, tengeneza kichwa cha makala yanayohusiana na mpira wa vikapu.",
+        "category": null
+    },
+    {
+        "instruction": "Je, unawezaje kuunda kanuni ya hali ya utumiaji wa wateja?",
+        "category": null
+    },
+    {
+        "instruction": "Eleza wakati uliokuletea furaha.",
+        "category": null
+    },
+    {
+        "instruction": "Tafuta ni nchi gani ina wastani wa halijoto ya chini kabisa mwezi wa Julai.",
+        "category": null
+    }
+]
