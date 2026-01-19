@@ -1,5 +1,6 @@
 训练数据在：
 data/llama_hpo_data.json
+
 即将data/llama_mpo_data.json中的"source_conversations"，"source_chosen"，"source_rejected"的value都翻译成6种目标语言，翻译脚本是src/llamafactory/data/translate_dataset.py
 
 
@@ -11,5 +12,6 @@ Multilingual-Refusal/dataset/splits_multi/harmless_val_translated_bn.json
 Multilingual-Refusal/dataset/splits_multi/harmless_val_translated_sw.json
 Multilingual-Refusal/dataset/splits_multi/harmless_test_translated_bn.json
 Multilingual-Refusal/dataset/splits_multi/harmless_test_translated_sw.json
+
 翻译脚本是：
 Multilingual-Refusal/scripts/translate_data.py
