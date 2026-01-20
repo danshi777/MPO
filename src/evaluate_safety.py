@@ -11,8 +11,7 @@ import argparse
 from tqdm import tqdm
 import numpy as np
 
-api_key = "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"
-hf_token = "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"
+api_key = ""
 
 
 def load_multijail():
@@ -280,11 +279,9 @@ if __name__ == "__main__":
 
     tokenizer = AutoTokenizer.from_pretrained(
         args.model_id_or_path,
-        token=hf_token,
     )
     model = AutoModelForCausalLM.from_pretrained(
         args.model_id_or_path,
-        token=hf_token,
         torch_dtype=torch.bfloat16,
         device_map="auto"
     )
