@@ -22,4 +22,7 @@ Multilingual-Refusal/scripts/translate_data.py
 用GPT评测safe/unsafe/invaild：把src/activation_pca_visualization_pair_lang.py脚本中的--classify_model设为"gpt"，代码最开头填好api_key，就行
 
 每张图同时画英语和一种目标语言的脚本：
-plot_pca.sh
+plot_pca.sh，不知道有没有bug了，我缺包还没跑通，但是困了要睡了
+
+我这边examples/train_hpo/llama3.1_wpo.yaml这版效果挺好的，我写在共享文档结果里的就是这个，训出的模型在cpts_wpo-promptretain0.2-2epoch/llama3.1-8b-instruct
+
