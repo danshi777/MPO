@@ -1,4 +1,5 @@
 *.pyc
+cpts_*
 cpts_hpo/*
 cpts_mpo/*
 cpts_simpo/*

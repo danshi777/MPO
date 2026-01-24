@@ -15,3 +15,11 @@ Multilingual-Refusal/dataset/splits_multi/harmless_test_translated_sw.json
 
 翻译脚本是：
 Multilingual-Refusal/scripts/translate_data.py
+
+
+2026.1.24更新：
+
+用GPT评测safe/unsafe/invaild：把src/activation_pca_visualization_pair_lang.py脚本中的--classify_model设为"gpt"，代码最开头填好api_key，就行
+
+每张图同时画英语和一种目标语言的脚本：
+plot_pca.sh

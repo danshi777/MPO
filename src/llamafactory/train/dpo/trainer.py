@@ -34,12 +34,15 @@ import torch.distributed as dist
 from ...extras.constants import IGNORE_INDEX
 from ..callbacks import PissaConvertCallback, SaveProcessorCallback
 from ..trainer_utils import create_custom_optimizer, create_custom_scheduler, get_batch_logps
+from ...extras.logging import get_logger
 
 
 if TYPE_CHECKING:
     from transformers import PreTrainedModel, ProcessorMixin
 
     from ...hparams import FinetuningArguments
+
+logger = get_logger(__name__)
 
 
 class CustomDPOTrainer(DPOTrainer):
@@ -83,8 +86,7 @@ class CustomDPOTrainer(DPOTrainer):
         self.lang_reward = {}
 
         # hpo hyperparams
-        if self.loss_type == "hpo":
-            self.margin_lambda = finetuning_args.margin_lambda
+        if self.loss_type in ["hpo", "wpo", "hwpo"]:
             mu_en = torch.load(finetuning_args.mu_en_path, map_location="cpu") # [H]
             mu_zh = torch.load(finetuning_args.mu_zh_path, map_location="cpu")
             mu_ja = torch.load(finetuning_args.mu_ja_path, map_location="cpu")
@@ -93,6 +95,20 @@ class CustomDPOTrainer(DPOTrainer):
             mu_bn = torch.load(finetuning_args.mu_bn_path, map_location="cpu")
             mu_sw = torch.load(finetuning_args.mu_sw_path, map_location="cpu")
             self.mu_table = torch.stack([mu_en, mu_zh, mu_ja, mu_ko, mu_ar, mu_bn, mu_sw], dim=0)  # [K, H]
+
+            if self.loss_type == "hpo":
+                self.margin_coef = finetuning_args.margin_coef
+                self.retain_coef = finetuning_args.retain_coef
+                logger.info(f"Loss = L_simpo + {self.margin_coef} * L_spatial_margin + {self.retain_coef} * L_retain")
+            elif self.loss_type == "wpo":
+                self.margin_beta = finetuning_args.margin_beta
+                self.retain_coef = finetuning_args.retain_coef
+                logger.info(f"Loss = {self.margin_beta} * spatial_margin * L_simpo + {self.retain_coef} * L_retain")
+            else: # "hwpo"
+                self.margin_coef = finetuning_args.margin_coef
+                self.retain_coef = finetuning_args.retain_coef
+                self.margin_beta = finetuning_args.margin_beta
+                logger.info(f"Loss = {self.margin_beta} * spatial_margin * L_simpo + {self.margin_coef} * L_spatial_margin + {self.retain_coef} * L_retain")
 
 
         Trainer.__init__(self, model=model, **kwargs)
@@ -252,7 +268,8 @@ class CustomDPOTrainer(DPOTrainer):
         chosen_length, _ = valid_length.split(batch_size, dim=0) # shape 都是[B,]
 
         # return chosen_logps, rejected_logps, chosen_prompt_repr, rejected_prompt_repr, all_hidden_states, chosen_logits, rejected_logits, chosen_logps / chosen_length
-        return chosen_logps, rejected_logps, chosen_prompt_repr, rejected_prompt_repr, all_hidden_states
+        # return chosen_logps, rejected_logps, chosen_prompt_repr, rejected_prompt_repr, all_hidden_states
+        return chosen_logps, rejected_logps, chosen_prompt_repr, rejected_prompt_repr, all_prompt_repr
 
     @override
     def compute_reference_reprs(
@@ -312,6 +329,7 @@ class CustomDPOTrainer(DPOTrainer):
         simpo_loss = -F.logsigmoid(self.beta * logits)
         return simpo_loss
     
+
     def spatial_margin_loss(
         self, 
         source_chosen_reprs: "torch.Tensor", # [B, H]
@@ -344,13 +362,15 @@ class CustomDPOTrainer(DPOTrainer):
         # target_margin = self.l2_dist(target_chosen_reprs, mu_harmless_targets) # [B], grad
         source_margin = self.rms_dist(source_chosen_reprs, mu_harmless_sources) # [B], no grad
         target_margin = self.rms_dist(target_chosen_reprs, mu_harmless_targets) # [B], grad
-        if not dist.is_initialized() or dist.get_rank() == 0:
-            print("en_margin:", source_margin)
-            print("target_margin:", target_margin)
+        # if not dist.is_initialized() or dist.get_rank() == 0:
+        #     print("en_margin:", source_margin)
+        #     print("target_margin:", target_margin)
 
         margin_violation = torch.relu(source_margin - target_margin)      # [B], relu相当于max(0,x)，只当source_margin > target_margin 时才拉近
-        # margin_violation = torch.relu(self.beta * source_margin - target_margin)
-        spatial_margin_loss = (margin_violation ** 2).mean() # scalar
+        # margin_violation = source_margin / target_margin
+
+        # spatial_margin_loss = (margin_violation ** 2).mean() # scalar
+        spatial_margin_loss = margin_violation  # [B]
         return spatial_margin_loss
 
 
@@ -389,6 +409,7 @@ class CustomDPOTrainer(DPOTrainer):
                 target_lang_ids,
                 ) # 结果：标量
             # policy_outputs["source"][4]: 来自 concatenated_forward 的 all_hidden_states，shape [2B, L, H]
+            # policy_outputs["source"][4]: 来自 concatenated_forward 的 all_prompt_repr，是prompt-only的表示，shape [2B, H]
             en_retain_loss = nn.MSELoss()(
                 policy_outputs["source"][4].to(self.accelerator.device), 
                 reference_outputs["source"][4].to(self.accelerator.device),
@@ -400,7 +421,37 @@ class CustomDPOTrainer(DPOTrainer):
                 # 只对齐 prompt 表示，或
                 # 对齐 response-free 的 hidden，或
                 # 用 masked mean（attention mask）做 pooling
-            losses = simpo_loss + self.margin_lambda * spatial_margin_loss + en_retain_loss
+            losses = simpo_loss + self.margin_coef * spatial_margin_loss + en_retain_loss
+        elif self.loss_type == "wpo":
+            spatial_margin_loss = self.spatial_margin_loss(
+                source_chosen_reprs, 
+                source_rejected_reprs, 
+                target_chosen_reprs, 
+                target_rejected_reprs,
+                source_lang_ids,
+                target_lang_ids,
+                ) # 结果：标量
+            en_retain_loss = nn.MSELoss()(
+                policy_outputs["source"][4].to(self.accelerator.device), 
+                reference_outputs["source"][4].to(self.accelerator.device),
+            )
+            losses = self.margin_beta * spatial_margin_loss.detach() * simpo_loss
+            # losses = self.margin_beta * 1.0 * simpo_loss + en_retain_loss
+            # losses = self.margin_beta * 1.0 * simpo_loss
+        elif self.loss_type == "hwpo":
+            spatial_margin_loss = self.spatial_margin_loss(
+                source_chosen_reprs, 
+                source_rejected_reprs, 
+                target_chosen_reprs, 
+                target_rejected_reprs,
+                source_lang_ids,
+                target_lang_ids,
+                ) # 结果：标量
+            en_retain_loss = nn.MSELoss()(
+                policy_outputs["source"][4].to(self.accelerator.device), 
+                reference_outputs["source"][4].to(self.accelerator.device),
+            )
+            losses = self.margin_beta * spatial_margin_loss.detach() * simpo_loss + self.margin_coef * spatial_margin_loss + en_retain_loss
         else:
             raise NotImplementedError(f"Unknown loss type: {self.loss_type}.")
 
@@ -412,6 +463,7 @@ class CustomDPOTrainer(DPOTrainer):
         else: # hpo
             return losses, simpo_loss, spatial_margin_loss, en_retain_loss, chosen_rewards, rejected_rewards
     
+
     @override
     def get_batch_loss_metrics(
         self,
@@ -462,7 +514,8 @@ class CustomDPOTrainer(DPOTrainer):
         reward_accuracies = (chosen_rewards > rejected_rewards).float()
 
         prefix = "eval_" if train_eval == "eval" else ""
-        if self.loss_type == "hpo":
+        
+        if self.loss_type in ["hpo", "wpo", "hwpo"]:
             metrics["{}simpo_loss".format(prefix)] = simpo_loss.detach().float().mean().cpu().item()
             metrics["{}spatial_margin_loss".format(prefix)] = spatial_margin_loss.detach().float().mean().cpu().item()
             metrics["{}en_retain_loss".format(prefix)] = en_retain_loss.detach().float().mean().cpu().item()

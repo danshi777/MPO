@@ -1,7 +1,7 @@
 model_name_or_path: /ds/models/llms/Llama-3.1-8B-Instruct
 stage: dpo
-pref_loss: hpo
-output_dir: cpts_hpo/llama3.1-8b-instruct/
+pref_loss: hwpo
+output_dir: cpts_hwpo/llama3.1-8b-instruct/
 do_train: true
 do_eval: false
 finetuning_type: full
@@ -10,6 +10,7 @@ deepspeed: examples/deepspeed/ds_z3_config.json
 simpo_gamma: 1.0
 pref_beta: 2.0
 margin_lambda: 1.0
+margin_beta: 10.0
 mu_en_path: /netscratch/dshi/projects/MPO/data/mean_harmless/mu_llama31-8b_en.pt
 mu_zh_path: /netscratch/dshi/projects/MPO/data/mean_harmless/mu_llama31-8b_zh.pt
 mu_ja_path: /netscratch/dshi/projects/MPO/data/mean_harmless/mu_llama31-8b_ja.pt
@@ -30,7 +31,7 @@ overwrite_output_dir: true
 per_device_train_batch_size: 4
 gradient_accumulation_steps: 1
 learning_rate: 1.0e-06
-num_train_epochs: 3
+num_train_epochs: 4
 lr_scheduler_type: cosine
 warmup_ratio: 0.1
 bf16: true

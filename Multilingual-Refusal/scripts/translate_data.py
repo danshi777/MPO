@@ -68,11 +68,11 @@ target_langs = ['bn', 'sw']
 
 
 for target_lang in target_langs:
-    for data_type in [ "harmless"]:
+    for data_type in [ "harmful"]: # [ "harmless", "harmful"]
         for split in ['train', 'test', 'val']:
             print(f"Translating {data_type}_{split} to {target_lang}")
             harmful_test_set_translated = translate_harmful_to_target_language(target_lang, split)
-            with open(f'dataset/splits_multi/{data_type}_{split}_translated_{target_lang}.json', 'w') as f:
+            with open(f'Multilingual-Refusal/dataset/splits_multi/{data_type}_{split}_translated_{target_lang}.json', 'w') as f:
                 json.dump(harmful_test_set_translated, f, indent=4)
 
 

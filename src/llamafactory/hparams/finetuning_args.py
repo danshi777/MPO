@@ -208,7 +208,9 @@ class RLHFArguments:
         default="lora",
         metadata={"help": "The type of the reward model in PPO training. Lora model only supports lora training."},
     )
-    margin_lambda: Optional[float] = field(default=0.0, metadata={"help": "..."})
+    margin_coef: Optional[float] = field(default=1.0, metadata={"help": "..."})
+    retain_coef: Optional[float] = field(default=1.0, metadata={"help": "..."})
+    margin_beta: Optional[float] = field(default=1.0, metadata={"help": "..."})
     mu_en_path: Optional[str] = field(default=None)
     mu_zh_path: Optional[str] = field(default=None)
     mu_ja_path: Optional[str] = field(default=None)

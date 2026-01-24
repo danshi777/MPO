@@ -268,11 +268,11 @@ if __name__ == "__main__":
     parser.add_argument("--safety_classifier_path",
                         type=str,
                         default="zjunlp/SafeEdit-Safety-Classifier",
-                        help="Path to the trained safety classifier model.")
+                        help="Path to the trained safety classifier model. （当classify_model=trained_classifier时使用）")
     parser.add_argument('--evaluate_batch_size',
                         type=int,
                         default=8,
-                        help="batch size of evaluation of safety.")
+                        help="batch size of evaluation of safety.（当classify_model=trained_classifier时使用）")
     
     args = parser.parse_args()
     args.output_dir = f"{args.output_dir}/{args.model_name}"
@@ -300,7 +300,7 @@ if __name__ == "__main__":
     os.makedirs(args.output_dir, exist_ok=True)
     # langs =  ['zh-CN', 'ja', 'ko', 'ar', 'bn', 'sw']
     langs = ["zh", "ko", "ar", "bn", "sw"]
-    # langs = ["bn", "sw"]
+    # langs = ["zh", "ko", "sw"]
     all_outputs = generate_all_responses(model, tokenizer, multijail_data, langs)
     
     results_by_lang = {}

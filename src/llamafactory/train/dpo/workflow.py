@@ -121,7 +121,7 @@ def run_dpo(
         trainer.save_metrics("train", train_result.metrics)
         trainer.save_state()
         if trainer.is_world_process_zero() and finetuning_args.plot_loss:
-            plot_loss(training_args.output_dir, keys=["loss", "eval_loss", "rewards/accuracies"])
+            plot_loss(training_args.output_dir, keys=["loss", "eval_loss", "simpo_loss", "spatial_margin_loss", "en_retain_loss", "rewards/accuracies"])
 
     gather_dicts_across_gpus(trainer.lang_reward, training_args.output_dir)
 
