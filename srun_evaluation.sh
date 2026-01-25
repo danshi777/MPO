@@ -37,7 +37,7 @@ srun -p B200 --mem=280GB --nodes=1 --ntasks-per-node=1 --gpus-per-task=1 --cpus-
     bash -c '
         source /netscratch/dshi/projects/envs/anaconda/etc/profile.d/conda.sh
         conda activate mpo
-        bash evaluation.sh
+        bash run_evaluation.sh
     ' \
     2>&1 | tee "$LOGFILE"
 

@@ -1,0 +1,617 @@
+{
+  "layer": 41,
+  "position_type": "last",
+  "n_harmful": 100,
+  "n_harmless": 100,
+  "total_pairs": 100,
+  "paired": true,
+  "distances_stats": {
+    "mean": 185.2348016357422,
+    "std": 42.48466183686295,
+    "min": 121.91889953613281,
+    "max": 313.7336120605469,
+    "median": 176.0339813232422
+  },
+  "distance_pairs": [
+    {
+      "pair_idx": 0,
+      "harmful_idx": 100,
+      "harmless_idx": 0,
+      "distance": 217.92234802246094
+    },
+    {
+      "pair_idx": 1,
+      "harmful_idx": 101,
+      "harmless_idx": 1,
+      "distance": 170.0297088623047
+    },
+    {
+      "pair_idx": 2,
+      "harmful_idx": 102,
+      "harmless_idx": 2,
+      "distance": 170.73399353027344
+    },
+    {
+      "pair_idx": 3,
+      "harmful_idx": 103,
+      "harmless_idx": 3,
+      "distance": 175.63478088378906
+    },
+    {
+      "pair_idx": 4,
+      "harmful_idx": 104,
+      "harmless_idx": 4,
+      "distance": 222.70736694335938
+    },
+    {
+      "pair_idx": 5,
+      "harmful_idx": 105,
+      "harmless_idx": 5,
+      "distance": 139.311767578125
+    },
+    {
+      "pair_idx": 6,
+      "harmful_idx": 106,
+      "harmless_idx": 6,
+      "distance": 163.9671173095703
+    },
+    {
+      "pair_idx": 7,
+      "harmful_idx": 107,
+      "harmless_idx": 7,
+      "distance": 157.3762969970703
+    },
+    {
+      "pair_idx": 8,
+      "harmful_idx": 108,
+      "harmless_idx": 8,
+      "distance": 235.3531494140625
+    },
+    {
+      "pair_idx": 9,
+      "harmful_idx": 109,
+      "harmless_idx": 9,
+      "distance": 162.7262420654297
+    },
+    {
+      "pair_idx": 10,
+      "harmful_idx": 110,
+      "harmless_idx": 10,
+      "distance": 141.5675506591797
+    },
+    {
+      "pair_idx": 11,
+      "harmful_idx": 111,
+      "harmless_idx": 11,
+      "distance": 156.29408264160156
+    },
+    {
+      "pair_idx": 12,
+      "harmful_idx": 112,
+      "harmless_idx": 12,
+      "distance": 244.96511840820312
+    },
+    {
+      "pair_idx": 13,
+      "harmful_idx": 113,
+      "harmless_idx": 13,
+      "distance": 226.99063110351562
+    },
+    {
+      "pair_idx": 14,
+      "harmful_idx": 114,
+      "harmless_idx": 14,
+      "distance": 272.8564758300781
+    },
+    {
+      "pair_idx": 15,
+      "harmful_idx": 115,
+      "harmless_idx": 15,
+      "distance": 139.31658935546875
+    },
+    {
+      "pair_idx": 16,
+      "harmful_idx": 116,
+      "harmless_idx": 16,
+      "distance": 156.62338256835938
+    },
+    {
+      "pair_idx": 17,
+      "harmful_idx": 117,
+      "harmless_idx": 17,
+      "distance": 156.46986389160156
+    },
+    {
+      "pair_idx": 18,
+      "harmful_idx": 118,
+      "harmless_idx": 18,
+      "distance": 289.6634521484375
+    },
+    {
+      "pair_idx": 19,
+      "harmful_idx": 119,
+      "harmless_idx": 19,
+      "distance": 165.10946655273438
+    },
+    {
+      "pair_idx": 20,
+      "harmful_idx": 120,
+      "harmless_idx": 20,
+      "distance": 143.87197875976562
+    },
+    {
+      "pair_idx": 21,
+      "harmful_idx": 121,
+      "harmless_idx": 21,
+      "distance": 176.84347534179688
+    },
+    {
+      "pair_idx": 22,
+      "harmful_idx": 122,
+      "harmless_idx": 22,
+      "distance": 157.40965270996094
+    },
+    {
+      "pair_idx": 23,
+      "harmful_idx": 123,
+      "harmless_idx": 23,
+      "distance": 227.54867553710938
+    },
+    {
+      "pair_idx": 24,
+      "harmful_idx": 124,
+      "harmless_idx": 24,
+      "distance": 209.4362335205078
+    },
+    {
+      "pair_idx": 25,
+      "harmful_idx": 125,
+      "harmless_idx": 25,
+      "distance": 125.42326354980469
+    },
+    {
+      "pair_idx": 26,
+      "harmful_idx": 126,
+      "harmless_idx": 26,
+      "distance": 238.63926696777344
+    },
+    {
+      "pair_idx": 27,
+      "harmful_idx": 127,
+      "harmless_idx": 27,
+      "distance": 216.32257080078125
+    },
+    {
+      "pair_idx": 28,
+      "harmful_idx": 128,
+      "harmless_idx": 28,
+      "distance": 210.48899841308594
+    },
+    {
+      "pair_idx": 29,
+      "harmful_idx": 129,
+      "harmless_idx": 29,
+      "distance": 145.17935180664062
+    },
+    {
+      "pair_idx": 30,
+      "harmful_idx": 130,
+      "harmless_idx": 30,
+      "distance": 168.54942321777344
+    },
+    {
+      "pair_idx": 31,
+      "harmful_idx": 131,
+      "harmless_idx": 31,
+      "distance": 193.51181030273438
+    },
+    {
+      "pair_idx": 32,
+      "harmful_idx": 132,
+      "harmless_idx": 32,
+      "distance": 215.15176391601562
+    },
+    {
+      "pair_idx": 33,
+      "harmful_idx": 133,
+      "harmless_idx": 33,
+      "distance": 236.0260467529297
+    },
+    {
+      "pair_idx": 34,
+      "harmful_idx": 134,
+      "harmless_idx": 34,
+      "distance": 181.8875274658203
+    },
+    {
+      "pair_idx": 35,
+      "harmful_idx": 135,
+      "harmless_idx": 35,
+      "distance": 134.2789764404297
+    },
+    {
+      "pair_idx": 36,
+      "harmful_idx": 136,
+      "harmless_idx": 36,
+      "distance": 141.36741638183594
+    },
+    {
+      "pair_idx": 37,
+      "harmful_idx": 137,
+      "harmless_idx": 37,
+      "distance": 144.40724182128906
+    },
+    {
+      "pair_idx": 38,
+      "harmful_idx": 138,
+      "harmless_idx": 38,
+      "distance": 182.15626525878906
+    },
+    {
+      "pair_idx": 39,
+      "harmful_idx": 139,
+      "harmless_idx": 39,
+      "distance": 184.00961303710938
+    },
+    {
+      "pair_idx": 40,
+      "harmful_idx": 140,
+      "harmless_idx": 40,
+      "distance": 121.91889953613281
+    },
+    {
+      "pair_idx": 41,
+      "harmful_idx": 141,
+      "harmless_idx": 41,
+      "distance": 141.62249755859375
+    },
+    {
+      "pair_idx": 42,
+      "harmful_idx": 142,
+      "harmless_idx": 42,
+      "distance": 136.3473663330078
+    },
+    {
+      "pair_idx": 43,
+      "harmful_idx": 143,
+      "harmless_idx": 43,
+      "distance": 191.0237274169922
+    },
+    {
+      "pair_idx": 44,
+      "harmful_idx": 144,
+      "harmless_idx": 44,
+      "distance": 258.1725769042969
+    },
+    {
+      "pair_idx": 45,
+      "harmful_idx": 145,
+      "harmless_idx": 45,
+      "distance": 201.0720672607422
+    },
+    {
+      "pair_idx": 46,
+      "harmful_idx": 146,
+      "harmless_idx": 46,
+      "distance": 153.75448608398438
+    },
+    {
+      "pair_idx": 47,
+      "harmful_idx": 147,
+      "harmless_idx": 47,
+      "distance": 160.3671112060547
+    },
+    {
+      "pair_idx": 48,
+      "harmful_idx": 148,
+      "harmless_idx": 48,
+      "distance": 130.660888671875
+    },
+    {
+      "pair_idx": 49,
+      "harmful_idx": 149,
+      "harmless_idx": 49,
+      "distance": 163.5390625
+    },
+    {
+      "pair_idx": 50,
+      "harmful_idx": 150,
+      "harmless_idx": 50,
+      "distance": 259.6572265625
+    },
+    {
+      "pair_idx": 51,
+      "harmful_idx": 151,
+      "harmless_idx": 51,
+      "distance": 123.34976196289062
+    },
+    {
+      "pair_idx": 52,
+      "harmful_idx": 152,
+      "harmless_idx": 52,
+      "distance": 140.1490020751953
+    },
+    {
+      "pair_idx": 53,
+      "harmful_idx": 153,
+      "harmless_idx": 53,
+      "distance": 155.40469360351562
+    },
+    {
+      "pair_idx": 54,
+      "harmful_idx": 154,
+      "harmless_idx": 54,
+      "distance": 251.77249145507812
+    },
+    {
+      "pair_idx": 55,
+      "harmful_idx": 155,
+      "harmless_idx": 55,
+      "distance": 218.5598602294922
+    },
+    {
+      "pair_idx": 56,
+      "harmful_idx": 156,
+      "harmless_idx": 56,
+      "distance": 176.1582489013672
+    },
+    {
+      "pair_idx": 57,
+      "harmful_idx": 157,
+      "harmless_idx": 57,
+      "distance": 242.98826599121094
+    },
+    {
+      "pair_idx": 58,
+      "harmful_idx": 158,
+      "harmless_idx": 58,
+      "distance": 156.15869140625
+    },
+    {
+      "pair_idx": 59,
+      "harmful_idx": 159,
+      "harmless_idx": 59,
+      "distance": 160.1497039794922
+    },
+    {
+      "pair_idx": 60,
+      "harmful_idx": 160,
+      "harmless_idx": 60,
+      "distance": 140.55682373046875
+    },
+    {
+      "pair_idx": 61,
+      "harmful_idx": 161,
+      "harmless_idx": 61,
+      "distance": 243.50064086914062
+    },
+    {
+      "pair_idx": 62,
+      "harmful_idx": 162,
+      "harmless_idx": 62,
+      "distance": 182.4534149169922
+    },
+    {
+      "pair_idx": 63,
+      "harmful_idx": 163,
+      "harmless_idx": 63,
+      "distance": 190.28854370117188
+    },
+    {
+      "pair_idx": 64,
+      "harmful_idx": 164,
+      "harmless_idx": 64,
+      "distance": 220.60516357421875
+    },
+    {
+      "pair_idx": 65,
+      "harmful_idx": 165,
+      "harmless_idx": 65,
+      "distance": 178.67788696289062
+    },
+    {
+      "pair_idx": 66,
+      "harmful_idx": 166,
+      "harmless_idx": 66,
+      "distance": 168.36318969726562
+    },
+    {
+      "pair_idx": 67,
+      "harmful_idx": 167,
+      "harmless_idx": 67,
+      "distance": 173.4161834716797
+    },
+    {
+      "pair_idx": 68,
+      "harmful_idx": 168,
+      "harmless_idx": 68,
+      "distance": 208.82623291015625
+    },
+    {
+      "pair_idx": 69,
+      "harmful_idx": 169,
+      "harmless_idx": 69,
+      "distance": 313.7336120605469
+    },
+    {
+      "pair_idx": 70,
+      "harmful_idx": 170,
+      "harmless_idx": 70,
+      "distance": 187.52276611328125
+    },
+    {
+      "pair_idx": 71,
+      "harmful_idx": 171,
+      "harmless_idx": 71,
+      "distance": 149.49700927734375
+    },
+    {
+      "pair_idx": 72,
+      "harmful_idx": 172,
+      "harmless_idx": 72,
+      "distance": 240.3844451904297
+    },
+    {
+      "pair_idx": 73,
+      "harmful_idx": 173,
+      "harmless_idx": 73,
+      "distance": 205.79661560058594
+    },
+    {
+      "pair_idx": 74,
+      "harmful_idx": 174,
+      "harmless_idx": 74,
+      "distance": 272.75909423828125
+    },
+    {
+      "pair_idx": 75,
+      "harmful_idx": 175,
+      "harmless_idx": 75,
+      "distance": 208.01443481445312
+    },
+    {
+      "pair_idx": 76,
+      "harmful_idx": 176,
+      "harmless_idx": 76,
+      "distance": 213.27066040039062
+    },
+    {
+      "pair_idx": 77,
+      "harmful_idx": 177,
+      "harmless_idx": 77,
+      "distance": 225.9630889892578
+    },
+    {
+      "pair_idx": 78,
+      "harmful_idx": 178,
+      "harmless_idx": 78,
+      "distance": 196.8654022216797
+    },
+    {
+      "pair_idx": 79,
+      "harmful_idx": 179,
+      "harmless_idx": 79,
+      "distance": 149.8995361328125
+    },
+    {
+      "pair_idx": 80,
+      "harmful_idx": 180,
+      "harmless_idx": 80,
+      "distance": 276.47637939453125
+    },
+    {
+      "pair_idx": 81,
+      "harmful_idx": 181,
+      "harmless_idx": 81,
+      "distance": 181.16671752929688
+    },
+    {
+      "pair_idx": 82,
+      "harmful_idx": 182,
+      "harmless_idx": 82,
+      "distance": 175.99537658691406
+    },
+    {
+      "pair_idx": 83,
+      "harmful_idx": 183,
+      "harmless_idx": 83,
+      "distance": 176.0725860595703
+    },
+    {
+      "pair_idx": 84,
+      "harmful_idx": 184,
+      "harmless_idx": 84,
+      "distance": 187.97930908203125
+    },
+    {
+      "pair_idx": 85,
+      "harmful_idx": 185,
+      "harmless_idx": 85,
+      "distance": 162.03013610839844
+    },
+    {
+      "pair_idx": 86,
+      "harmful_idx": 186,
+      "harmless_idx": 86,
+      "distance": 134.81776428222656
+    },
+    {
+      "pair_idx": 87,
+      "harmful_idx": 187,
+      "harmless_idx": 87,
+      "distance": 152.34963989257812
+    },
+    {
+      "pair_idx": 88,
+      "harmful_idx": 188,
+      "harmless_idx": 88,
+      "distance": 158.53082275390625
+    },
+    {
+      "pair_idx": 89,
+      "harmful_idx": 189,
+      "harmless_idx": 89,
+      "distance": 256.1448669433594
+    },
+    {
+      "pair_idx": 90,
+      "harmful_idx": 190,
+      "harmless_idx": 90,
+      "distance": 159.53395080566406
+    },
+    {
+      "pair_idx": 91,
+      "harmful_idx": 191,
+      "harmless_idx": 91,
+      "distance": 209.22805786132812
+    },
+    {
+      "pair_idx": 92,
+      "harmful_idx": 192,
+      "harmless_idx": 92,
+      "distance": 237.10333251953125
+    },
+    {
+      "pair_idx": 93,
+      "harmful_idx": 193,
+      "harmless_idx": 93,
+      "distance": 142.86561584472656
+    },
+    {
+      "pair_idx": 94,
+      "harmful_idx": 194,
+      "harmless_idx": 94,
+      "distance": 180.3423614501953
+    },
+    {
+      "pair_idx": 95,
+      "harmful_idx": 195,
+      "harmless_idx": 95,
+      "distance": 146.47369384765625
+    },
+    {
+      "pair_idx": 96,
+      "harmful_idx": 196,
+      "harmless_idx": 96,
+      "distance": 145.36900329589844
+    },
+    {
+      "pair_idx": 97,
+      "harmful_idx": 197,
+      "harmless_idx": 97,
+      "distance": 135.0673828125
+    },
+    {
+      "pair_idx": 98,
+      "harmful_idx": 198,
+      "harmless_idx": 98,
+      "distance": 161.9036102294922
+    },
+    {
+      "pair_idx": 99,
+      "harmful_idx": 199,
+      "harmless_idx": 99,
+      "distance": 132.6792449951172
+    }
+  ]
+}

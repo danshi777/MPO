@@ -197,151 +197,8 @@ def load_polyrefuse_data(harmful_path: str, harmless_path: str, max_samples: int
     print(f"Loaded {len(harmless_texts)} harmless and {len(harmful_texts)} harmful samples")
     return harmless_texts, harmful_texts
 
-def apply_pca_and_plot(
-    activations: torch.Tensor,
-    labels: List[str],
-    layer: int,
-    position_type: str,
-    save_dir: str,
-    lang_labels: List[str] = None,     # 新增
-    compare_lang: str = None           # 新增：用于标题/文件名
-):
-    """
-    对激活进行PCA降维并绘图（可选：同图对比两种语言）
-    """
-    activations_np = activations.detach().cpu().numpy()
 
-    pca = PCA(n_components=2)
-    activations_2d = pca.fit_transform(activations_np)
-
-    plt.figure(figsize=(10, 8))
-
-    # 仅一门语言：沿用原逻辑（红/蓝区分 harmful/harmless）
-    if lang_labels is None:
-        harmful_indices  = [i for i, lab in enumerate(labels) if lab == 'harmful']
-        harmless_indices = [i for i, lab in enumerate(labels) if lab == 'harmless']
-
-        harmful_points  = activations_2d[harmful_indices]
-        harmless_points = activations_2d[harmless_indices]
-
-        plt.scatter(harmful_points[:, 0], harmful_points[:, 1],
-                    c='red', alpha=0.6, label='Harmful', s=50, edgecolors='darkred')
-        plt.scatter(harmless_points[:, 0], harmless_points[:, 1],
-                    c='blue', alpha=0.6, label='Harmless', s=50, edgecolors='darkblue')
-
-        title_lang = "Single-Lang"
-
-    else:
-        # 双语言：颜色仍表示 harmful/harmless；形状/边框表示语言
-        # 你可以按需把 marker 调整得更显著
-        markers = {'en': 'o', compare_lang: '^'}  # en 圆点；other 三角
-        edge    = {'en': 'black', compare_lang: 'gray'}
-
-        # 分四组：en-harmless, en-harmful, other-harmless, other-harmful
-        for lang in ['en', compare_lang]:
-            for cls, color, ecolor in [('harmless', 'blue', 'darkblue'),
-                                       ('harmful',  'red',  'darkred')]:
-                idx = [i for i in range(len(labels)) if labels[i] == cls and lang_labels[i] == lang]
-                if len(idx) == 0:
-                    continue
-                pts = activations_2d[idx]
-                plt.scatter(
-                    pts[:, 0], pts[:, 1],
-                    c=color, alpha=0.55,
-                    label=f'{lang}-{cls}',
-                    s=45,
-                    marker=markers[lang],
-                    edgecolors=edge[lang]
-                )
-
-        title_lang = f"EN vs {compare_lang}"
-
-    plt.xlabel('PC1')
-    plt.ylabel('PC2')
-    plt.title(f'Layer {layer} - {position_type.capitalize()} Token Activations (PCA) [{title_lang}]')
-    plt.legend()
-    plt.grid(True, alpha=0.3)
-
-    explained_var = pca.explained_variance_ratio_
-    plt.text(
-        0.02, 0.98,
-        f'Explained var: PC1={explained_var[0]:.2f}, PC2={explained_var[1]:.2f}',
-        transform=plt.gca().transAxes,
-        verticalalignment='top',
-        bbox=dict(boxstyle='round', facecolor='white', alpha=0.8)
-    )
-
-    os.makedirs(save_dir, exist_ok=True)
-    if compare_lang is None:
-        filename = f'layer_{layer:02d}_{position_type}_token_pca.png'
-    else:
-        filename = f'layer_{layer:02d}_{position_type}_token_pca_en_vs_{compare_lang}.png'
-
-    plt.savefig(os.path.join(save_dir, filename), dpi=300, bbox_inches='tight')
-    plt.close()
-    print(f"Saved plot: {filename}")
-
-
-def apply_pca_and_plot_origin(activations: torch.Tensor, labels: List[str], layer: int, position_type: str, save_dir: str):
-    """
-    对激活进行PCA降维并绘图
-
-    Args:
-        activations: [n_samples, d_model] 的激活张量
-        labels: 样本标签列表
-        layer: 层号
-        position_type: 位置类型 ("last" 或 "mean")
-        save_dir: 保存目录
-    """
-    # 转换为numpy数组
-    activations_np = activations.numpy()
-
-    # PCA降维到2D
-    pca = PCA(n_components=2)
-    activations_2d = pca.fit_transform(activations_np)
-
-    # 分离有害和无害数据
-    harmful_indices = [i for i, label in enumerate(labels) if label == 'harmful']
-    harmless_indices = [i for i, label in enumerate(labels) if label == 'harmless']
-
-    harmful_points = activations_2d[harmful_indices]
-    harmless_points = activations_2d[harmless_indices]
-
-    # 绘图
-    plt.figure(figsize=(10, 8))
-
-    # 绘制有害数据点
-    plt.scatter(harmful_points[:, 0], harmful_points[:, 1],
-               c='red', alpha=0.6, label='Harmful', s=50, edgecolors='darkred')
-
-    # 绘制无害数据点
-    plt.scatter(harmless_points[:, 0], harmless_points[:, 1],
-               c='blue', alpha=0.6, label='Harmless', s=50, edgecolors='darkblue')
-
-    # 添加标签和标题
-    plt.xlabel('PC1')
-    plt.ylabel('PC2')
-    plt.title(f'Layer {layer} - {position_type.capitalize()} Token Activations (PCA)')
-    plt.legend()
-    plt.grid(True, alpha=0.3)
-
-    # 添加方差解释比例
-    explained_var = pca.explained_variance_ratio_
-    plt.text(0.02, 0.98, '.2f',
-            transform=plt.gca().transAxes, verticalalignment='top',
-            bbox=dict(boxstyle='round', facecolor='white', alpha=0.8))
-
-    # 保存图像
-    os.makedirs(save_dir, exist_ok=True)
-    filename = f'layer_{layer:02d}_{position_type}_token_pca.png'
-    plt.savefig(os.path.join(save_dir, filename), dpi=300, bbox_inches='tight')
-    plt.close()
-
-    print(f"Saved plot: {filename}")
-
-
-
-def calculate_and_save_distances(activations: torch.Tensor, labels: List[str], layer: int, position_type: str, save_dir: str, paired: bool = True):
+def calculate_and_save_distances(activations: torch.Tensor, labels: List[str], layer: int, position_type: str, save_dir: str, lang: str, paired: bool = True):
     """
     计算有害样本和无害样本之间的向量距离并保存
 
@@ -396,7 +253,7 @@ def calculate_and_save_distances(activations: torch.Tensor, labels: List[str], l
 
     # 保存距离信息
     os.makedirs(save_dir, exist_ok=True)
-    filename = f'layer_{layer:02d}_{position_type}_token_distances.json'
+    filename = f'{lang}_layer_{layer:02d}_{position_type}_token_distances.json'
 
     with open(os.path.join(save_dir, filename), 'w', encoding='utf-8') as f:
         json.dump({
@@ -419,37 +276,220 @@ def calculate_and_save_distances(activations: torch.Tensor, labels: List[str], l
     print(f"Saved distances: {filename} (paired: {paired and len(harmful_indices) == len(harmless_indices)}, mean: {np.mean(distances):.4f}, std: {np.std(distances):.4f})")
 
 
+def plot_distance_hist_en_vs_other(
+    args,
+    layer: int,
+    position_type: str,
+    other_lang: str,
+    bins: int = 50
+):
+    """
+    在同一张图中对比 EN vs 另一语言 的距离分布（直方图）
+    """
+
+    en_fname = f'{args.save_dir}/en_layer_{layer:02d}_{position_type}_token_distances.json'
+    other_fname = f'{args.save_dir}/{other_lang}_layer_{layer:02d}_{position_type}_token_distances.json'
+
+    with open(en_fname, 'r', encoding='utf-8') as f:
+        data_en = json.load(f)
+    with open(other_fname, 'r', encoding='utf-8') as f:
+        data_ot = json.load(f)
+
+    dist_en = [d['distance'] for d in data_en['distance_pairs']]
+    dist_ot = [d['distance'] for d in data_ot['distance_pairs']]
+
+    plt.figure(figsize=(8, 6))
+
+    plt.hist(
+        dist_en, bins=bins, density=True,
+        alpha=0.5, color='tab:blue', label='English'
+    )
+    plt.hist(
+        dist_ot, bins=bins, density=True,
+        alpha=0.5, color='tab:orange', label=other_lang
+    )
+
+    plt.xlabel('L2 Distance')
+    plt.ylabel('Density')
+    plt.title(
+        f'Layer {layer} | {position_type.capitalize()} token\n'
+        f'Distance Distribution: EN vs {other_lang}'
+    )
+    plt.legend()
+    plt.grid(alpha=0.3)
+
+    out_dir = os.path.join(args.save_dir, f'en_vs_{other_lang}')
+    os.makedirs(out_dir, exist_ok=True)
+
+    out_name = f'layer_{layer:02d}_{position_type}_distance_hist_en_vs_{other_lang}.png'
+    plt.savefig(os.path.join(out_dir, out_name), dpi=300, bbox_inches='tight')
+    plt.close()
+
+
+def plot_distance_box_en_vs_other(
+    args,
+    layer: int,
+    position_type: str,
+    other_lang: str
+):
+    """
+    EN vs 另一语言 的距离箱线图（更偏统计展示）
+    """
+
+    en_fname = f'{args.save_dir}/en_layer_{layer:02d}_{position_type}_token_distances.json'
+    other_fname = f'{args.save_dir}/{other_lang}_layer_{layer:02d}_{position_type}_token_distances.json'
+
+    with open(en_fname, 'r', encoding='utf-8') as f:
+        data_en = json.load(f)
+    with open(other_fname, 'r', encoding='utf-8') as f:
+        data_ot = json.load(f)
+
+    dist_en = [d['distance'] for d in data_en['distance_pairs']]
+    dist_ot = [d['distance'] for d in data_ot['distance_pairs']]
+
+    plt.figure(figsize=(6, 6))
+    plt.boxplot(
+        [dist_en, dist_ot],
+        labels=['English', other_lang],
+        showfliers=False
+    )
+
+    plt.ylabel('L2 Distance')
+    plt.title(
+        f'Layer {layer} | {position_type.capitalize()} token\n'
+        f'Distance Comparison'
+    )
+    plt.grid(axis='y', alpha=0.3)
+
+    out_dir = os.path.join(args.save_dir, f'en_vs_{other_lang}')
+    os.makedirs(out_dir, exist_ok=True)
+
+    out_name = f'layer_{layer:02d}_{position_type}_distance_box_en_vs_{other_lang}.png'
+    plt.savefig(os.path.join(out_dir, out_name), dpi=300, bbox_inches='tight')
+    plt.close()
+
+
+def plot_distance_hist_all_langs(
+    args,
+    layer: int,
+    position_type: str,
+    langs = ('en', 'zh', 'ja', 'ko', 'ar', 'bn', 'sw'),
+    bins: int = 100,
+    figsize=(14, 4)  # 扁长
+):
+    """
+    在同一张图中对比 7 种语言 的距离分布（直方图，density=True）。
+    默认输出到: {save_dir}/all_langs/
+    """
+    dist_by_lang = {}
+
+    # 读取每种语言的距离
+    for lang in langs:
+        fname = os.path.join(
+            args.save_dir, f'{lang}_layer_{layer:02d}_{position_type}_token_distances.json'
+        )
+        with open(fname, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        dist_by_lang[lang] = np.array([d['distance'] for d in data['distance_pairs']], dtype=np.float32)
+
+    # 统一 bins：用所有语言的全局范围，避免每个语言单独决定 bin 导致不可比
+    all_dist = np.concatenate(list(dist_by_lang.values()), axis=0)
+    dmin, dmax = float(all_dist.min()), float(all_dist.max())
+    bin_edges = np.linspace(dmin, dmax, bins + 1)
+
+    plt.figure(figsize=figsize)
+
+    # 叠加绘制
+    for lang in langs:
+        plt.hist(
+            dist_by_lang[lang],
+            bins=bin_edges,
+            density=True,
+            alpha=0.8,
+            label=lang
+        )
+
+    plt.xlabel('L2 Distance')
+    plt.ylabel('Density')
+    plt.title(f'Layer {layer} | {position_type.capitalize()} token | Distance Distribution (7 langs)')
+    plt.legend(ncol=7, fontsize=9, frameon=False)
+    plt.grid(alpha=0.25)
+
+    out_dir = os.path.join(args.save_dir, 'all_langs')
+    os.makedirs(out_dir, exist_ok=True)
+    out_name = f'layer_{layer:02d}_{position_type}_distance_hist_all_langs.png'
+    plt.savefig(os.path.join(out_dir, out_name), dpi=300, bbox_inches='tight')
+    plt.close()
+
+
+def plot_distance_box_all_langs(
+    args,
+    layer: int,
+    position_type: str,
+    langs = ('en', 'zh', 'ja', 'ko', 'ar', 'bn', 'sw'),
+    figsize=(14, 4)  # 扁长
+):
+    """
+    在同一张图中对比 7 种语言 的距离箱线图（showfliers=False）。
+    默认输出到: {save_dir}/all_langs/
+    """
+    data_list = []
+    for lang in langs:
+        fname = os.path.join(
+            args.save_dir, f'{lang}_layer_{layer:02d}_{position_type}_token_distances.json'
+        )
+        with open(fname, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        dist = [d['distance'] for d in data['distance_pairs']]
+        data_list.append(dist)
+
+    plt.figure(figsize=figsize)
+    plt.boxplot(
+        data_list,
+        labels=list(langs),
+        showfliers=False
+    )
+    plt.ylabel('L2 Distance')
+    plt.title(f'Layer {layer} | {position_type.capitalize()} token | Distance Comparison (7 langs)')
+    plt.grid(axis='y', alpha=0.25)
+
+    out_dir = os.path.join(args.save_dir, 'all_langs')
+    os.makedirs(out_dir, exist_ok=True)
+    out_name = f'layer_{layer:02d}_{position_type}_distance_box_all_langs.png'
+    plt.savefig(os.path.join(out_dir, out_name), dpi=300, bbox_inches='tight')
+    plt.close()
+
+
+
 def main():
     parser = argparse.ArgumentParser(description='激活PCA可视化')
-    parser.add_argument('--data_type', type=str, choices=['dpo', 'polyrefuse'], default='dpo',
+    parser.add_argument('--data_type', type=str, choices=['dpo', 'polyrefuse'], default='polyrefuse',
                        help='数据类型：dpo 或 polyrefuse')
     parser.add_argument('--data_path', type=str, default='/mnt/dolphinfs/ssd_pool/docker/user/hadoop-nlp-sh02/hadoop-aipnlp/LA/hanzhuowen02/refuse/MPO/data/dpo_en_demo.json',
                        help='DPO数据文件路径（当data_type=dpo时使用）')
-
-    parser.add_argument('--harmful_path', type=str, default='Multilingual-Refusal/dataset/splits_multi/harmful_test_translated_en.json',
-                       help='有害数据文件路径（当data_type=polyrefuse时使用）')
-    parser.add_argument('--harmless_path', type=str, default='Multilingual-Refusal/dataset/splits_multi/harmless_test_translated_en.json',
-                       help='无害数据文件路径（当data_type=polyrefuse时使用）')
-
-    parser.add_argument('--compare_lang', type=str, default=None,
-                   choices=["zh", "ko", "ja", "ar", "bn", "sw"],
-                   help='要和英语一起对比的另一种语言代码/名称（仅用于命名输出，如 zh/ja/ko），None 表示不对比')
-    parser.add_argument('--harmful_dir_other', type=str, default="Multilingual-Refusal/dataset/splits_multi/",
-                    help='另一种语言的有害数据路径（polyrefuse 时使用）')
-    parser.add_argument('--harmless_dir_other', type=str, default="Multilingual-Refusal/dataset/splits_multi/",
-                    help='另一种语言的无害数据路径（polyrefuse 时使用）')
-
+                    
+    parser.add_argument('--harmful_dir', type=str, default="Multilingual-Refusal/dataset/splits_multi/",
+                    help='有害数据路径（polyrefuse 时使用）')
+    parser.add_argument('--harmless_dir', type=str, default="Multilingual-Refusal/dataset/splits_multi/",
+                    help='无害数据路径（polyrefuse 时使用）')
+    
     parser.add_argument('--model_path', type=str,
                        default='/ds/models/llms/Llama-3.1-8B-Instruct',
                        help='模型路径')
+    parser.add_argument('--model_name', type=str,
+                       default='llama',
+                       help='模型名字，用来在存储时区分是哪个模型的')
+    
     parser.add_argument('--max_samples', type=int, default=100,
                        help='最大样本数')
     parser.add_argument('--batch_size', type=int, default=8,
                        help='批处理大小')
-    parser.add_argument('--save_dir', type=str, default=None,
+    parser.add_argument('--save_dir', type=str, default=f"figs/distance",
                        help='保存目录（默认根据数据类型自动设置）')
 
     args = parser.parse_args()
+
+    args.save_dir = f"{args.save_dir}/{args.model_name}"
 
     # 设置设备
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -462,76 +502,89 @@ def main():
     # 创建激活提取器
     extractor = ActivationExtractor(model_base)
 
-    # 设置默认保存目录
-    if args.save_dir is None:
-        args.save_dir = f'activation_pca_plots_{args.data_type}'
+    ############### 为每一种语言计算生成距离 ##################
+    langs = ['en', 'zh', 'ja', 'ko', 'ar', 'bn', 'sw']
+    for lang in langs:
+        harmful_path = f"{args.harmful_dir}/harmful_test_translated_{lang}.json"
+        harmless_path = f"{args.harmful_dir}/harmless_test_translated_{lang}.json"
+        # 根据数据类型加载数据
+        if args.data_type == 'dpo':
+            harmless_texts, harmful_texts = load_dpo_data(args.data_path, args.max_samples)
+            use_paired_distances = True  # DPO数据是配对的
+        elif args.data_type == 'polyrefuse':
+            harmless_texts, harmful_texts = load_polyrefuse_data(harmful_path, harmless_path, args.max_samples)
+            use_paired_distances = len(harmful_texts) == len(harmless_texts)  # PolyRefuse数据可能不是配对的
+        else:
+            raise ValueError(f"Unsupported data type: {args.data_type}")
 
-    # 根据数据类型加载数据
-    if args.data_type == 'dpo':
-        harmless_texts, harmful_texts = load_dpo_data(args.data_path, args.max_samples)
-        use_paired_distances = True  # DPO数据是配对的
-    elif args.data_type == 'polyrefuse':
-        # English
-        harmless_en, harmful_en = load_polyrefuse_data(args.harmful_path, args.harmless_path, args.max_samples)
-        
-        if args.compare_lang is not None:
-            assert args.harmful_dir_other and args.harmless_dir_other, \
-            "compare_lang != None 时必须提供 harmful_dir_other / harmless_dir_other"
-        
-            harmful_path_other = f"{args.harmful_dir_other}/harmful_test_translated_{args.compare_lang}.json"
-            harmless_path_other = f"{args.harmless_dir_other}/harmless_test_translated_{args.compare_lang}.json"
+        print(f"Using paired distances: {use_paired_distances}")
 
-            harmless_ot, harmful_ot = load_polyrefuse_data(args.harmful_path_other, args.harmless_path_other, args.max_samples)
+        # 合并数据和标签
+        all_texts = harmless_texts + harmful_texts
+        all_labels = ['harmless'] * len(harmless_texts) + ['harmful'] * len(harmful_texts)
 
-            # 合并两种语言
-            harmless_texts = harmless_en + harmless_ot
-            harmful_texts  = harmful_en + harmful_ot
+        # 提取激活（最后token）
+        print("Extracting activations for last token...")
+        activations_last = extractor.extract_activations(all_texts, positions=[-1], batch_size=args.batch_size)
+        # activations_last: [n_samples, n_layers, d_model]
 
-            all_texts = harmless_texts + harmful_texts
-            all_labels = (['harmless'] * len(harmless_texts)) + (['harmful'] * len(harmful_texts))
+        # 提取激活（平均所有token）
+        print("Extracting activations for mean of all tokens...")
+        activations_mean = extractor.extract_activations(all_texts, positions="mean", batch_size=args.batch_size)
+        # activations_mean: [n_samples, n_layers, d_model]
 
-            # 语言标签：前半 harmless_texts 中，前 len(harmless_en) 为 en，其余为 other；
-            # 同理 harmful_texts
-            lang_labels = (
-                (['en'] * len(harmless_en) + [args.compare_lang] * len(harmless_ot)) +
-                (['en'] * len(harmful_en)  + [args.compare_lang] * len(harmful_ot))
-            )
+        print("Generating PCA plots and calculating distances...")
+        num_layers= model_base.model.config.num_hidden_layers
+        # for layer in tqdm(range(num_layers), desc="Processing layers"):
+        for layer in tqdm(range(num_layers-1, num_layers), desc="Processing layers"):
+            # 最后token的激活
+            layer_activations_last = activations_last[:, layer, :]  # [n_samples, d_model]
+            calculate_and_save_distances(layer_activations_last, all_labels, layer, "last", args.save_dir, lang,use_paired_distances)
 
-            use_paired_distances = False  # 跨语言拼接后，默认不要当成 paired（除非你另行保证配对）
-            # use_paired_distances = len(harmful_texts) == len(harmless_texts)  # PolyRefuse数据可能不是配对的
-    else:
-        raise ValueError(f"Unsupported data type: {args.data_type}")
+            # 平均token的激活
+            layer_activations_mean = activations_mean[:, layer, :]  # [n_samples, d_model]
+            calculate_and_save_distances(layer_activations_mean, all_labels, layer, "mean", args.save_dir, lang, use_paired_distances)
 
-    print(f"Using paired distances: {use_paired_distances}")
+        print(f"All plots saved to {args.save_dir}")
 
-    # 合并数据和标签
-    all_texts = harmless_texts + harmful_texts
-    all_labels = ['harmless'] * len(harmless_texts) + ['harmful'] * len(harmful_texts)
+    ############### 为en和每一种目标语言绘制直方图和箱线图 ##################
+    # langs = ['zh', 'ja', 'ko', 'ar', 'bn', 'sw']
+    # for lang in langs:
+    #     # 绘制距离分布的直方图和箱线图
+    #     for position_type in ['mean']: # ['last', 'mean']
+    #         plot_distance_hist_en_vs_other(
+    #             args,
+    #             layer=layer,
+    #             position_type=position_type,
+    #             other_lang=lang
+    #         )
 
-    # 提取激活（最后token）
-    print("Extracting activations for last token...")
-    activations_last = extractor.extract_activations(all_texts, positions=[-1], batch_size=args.batch_size)
-    # activations_last: [n_samples, n_layers, d_model]
+    #         plot_distance_box_en_vs_other(
+    #             args,
+    #             layer=layer,
+    #             position_type=position_type,
+    #             other_lang=lang
+    #         )
 
-    # 提取激活（平均所有token）
-    print("Extracting activations for mean of all tokens...")
-    activations_mean = extractor.extract_activations(all_texts, positions="mean", batch_size=args.batch_size)
-    # activations_mean: [n_samples, n_layers, d_model]
 
-    # 为每一层生成PCA图和距离计算
-    print("Generating PCA plots and calculating distances...")
-    for layer in tqdm(range(model_base.model.config.num_hidden_layers), desc="Processing layers"):
-        # 最后token的激活
-        layer_activations_last = activations_last[:, layer, :]  # [n_samples, d_model]
-        apply_pca_and_plot(layer_activations_last, all_labels, layer, "last", args.save_dir, lang_labels=lang_labels, compare_lang=args.compare_lang)
-        calculate_and_save_distances(layer_activations_last, all_labels, layer, "last", args.save_dir, use_paired_distances)
-
-        # 平均token的激活
-        layer_activations_mean = activations_mean[:, layer, :]  # [n_samples, d_model]
-        apply_pca_and_plot(layer_activations_mean, all_labels, layer, "mean", args.save_dir, lang_labels=lang_labels, compare_lang=args.compare_lang)
-        calculate_and_save_distances(layer_activations_mean, all_labels, layer, "mean", args.save_dir, use_paired_distances)
-
-    print(f"All plots saved to {args.save_dir}")
+    ############### 7 种语言同图（直方图 + 箱线图） ##################
+    all_langs = ['en', 'zh', 'ja', 'ko', 'ar', 'bn', 'sw']
+    for position_type in ['mean']:  # 或 ['last','mean']
+        plot_distance_hist_all_langs(
+            args,
+            layer=layer,
+            position_type=position_type,
+            langs=all_langs,
+            bins=60,
+            figsize=(14, 4)
+        )
+        plot_distance_box_all_langs(
+            args,
+            layer=layer,
+            position_type=position_type,
+            langs=all_langs,
+            figsize=(14, 4)
+        )
 
 
 if __name__ == "__main__":

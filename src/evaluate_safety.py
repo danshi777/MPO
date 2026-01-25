@@ -33,6 +33,9 @@ def load_multijail():
     return data
 
 
+def load_advbench():
+    pass
+
 @torch.no_grad()
 def generate_response(model, tokenizer, prompts: list[str], max_new_tokens: int = 512) -> str:
     tokenizer.padding_side = 'left'

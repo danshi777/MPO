@@ -16,7 +16,7 @@ from deep_translator import GoogleTranslator
 
 
 # translate the harmful_test set to the target language
-def translate_harmful_to_target_language(target_lang, split):
+def translate_to_target_language(target_lang, split):
     translator = GoogleTranslator(source='en', target=target_lang)
     if data_type == 'harmless':
         if split == 'test':
@@ -59,21 +59,25 @@ def translate_harmful_to_target_language(target_lang, split):
     return harmful_test_set_translated
 
 # 'en', 'de','es', 'fr','it', 'nl', 'pl',  'ar','th',  'yo', 'ru', 
-# target_langs =  [ 'zh-CN', 'ja','ko',]
-target_langs = ['bn', 'sw']
+# target_langs =  ['zh-CN', 'ja', 'ko']
+# target_langs = ['bn', 'sw']
+# target_langs = ['zh-CN']
+target_langs = ['zh-CN', 'ja', 'ko', 'ar', 'bn', 'sw']
 #  'th',  'yo', 'ru', 'zh', 'ja','ko',
 # ['de', 'es', 'fr', 'it', 'nl', 'ja', 'pl', 'ru', 'zh', 'ko', 'ar']
 # target_langs = []
 
 
-
 for target_lang in target_langs:
-    for data_type in [ "harmful"]: # [ "harmless", "harmful"]
-        for split in ['train', 'test', 'val']:
+    for data_type in ["harmless", "harmful"]: # ["harmless", "harmful"]
+        for split in ['test']: # ['train', 'test', 'val']
             print(f"Translating {data_type}_{split} to {target_lang}")
-            harmful_test_set_translated = translate_harmful_to_target_language(target_lang, split)
-            with open(f'Multilingual-Refusal/dataset/splits_multi/{data_type}_{split}_translated_{target_lang}.json', 'w') as f:
-                json.dump(harmful_test_set_translated, f, indent=4)
+            harmful_test_set_translated = translate_to_target_language(target_lang, split)
+
+            if target_lang == 'zh-CN':
+                target_lang = 'zh'
+            with open(f'Multilingual-Refusal/dataset/translated/{data_type}_{split}_translated_{target_lang}.json', 'w', encoding="utf-8") as f:
+                json.dump(harmful_test_set_translated, f, ensure_ascii=False, indent=4)
 
 
 # GoogleTranslator().get_supported_languages(as_dict=True):
